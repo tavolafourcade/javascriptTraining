@@ -13,16 +13,16 @@ TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1
 GOOD LUCK 😀
 */
 
-const markMass = 78;
-const markHeight = 1.69;
-const johnMass = 92;
-const johnHeight = 1.95;
+// const markMass = 78;
+// const markHeight = 1.69;
+// const johnMass = 92;
+// const johnHeight = 1.95;
 
-const markBMI = markMass / markHeight ** 2
-const johnBMI = johnMass / johnHeight ** 2
+// const markBMI = markMass / markHeight ** 2
+// const johnBMI = johnMass / johnHeight ** 2
 
-const markHigherBMI = markBMI > johnBMI
-console.log(markHigherBMI)
+// const markHigherBMI = markBMI > johnBMI
+// console.log(markHigherBMI)
 
 
 // Coding Challenge #2
@@ -39,8 +39,42 @@ GOOD LUCK 😀
 
 */
 
-if (markBMI > johnBMI) {
-    console.log(`Mark's BMI (${markBMI}) is higher than John's (${johnBMI})!`)
-} else {
-  console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI})!`)
+// if (markBMI > johnBMI) {
+//     console.log(`Mark's BMI (${markBMI}) is higher than John's (${johnBMI})!`)
+// } else {
+//   console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI})!`)
+// }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Coding Challenge #3
+
+/*
+There are two gymnastics teams, Dolphins and Koalas. They compete against each other 3 times. The winner with the highest average score wins the a trophy!
+
+1. Calculate the average score for each team, using the test data below
+2. Compare the team's average scores to determine the winner of the competition, and print it to the console. Don't forget that there can be a draw, so test for that as well (draw means they have the same average score).
+
+3. BONUS 1: Include a requirement for a minimum score of 100. With this rule, a team only wins if it has a higher score than the other team, and the same time a score of at least 100 points. HINT: Use a logical operator to test for minimum score, as well as multiple else-if blocks 😉
+4. BONUS 2: Minimum score also applies to a draw! So a draw only happens when both teams have the same score and both have a score greater or equal 100 points. Otherwise, no team wins the trophy.
+
+TEST DATA: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
+TEST DATA BONUS 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
+TEST DATA BONUS 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
+
+GOOD LUCK 😀
+*/
+const dolphinsAVG = (97 + 112 + 101) / 3
+const koalasAVG = (109 + 95 + 106) / 3
+console.log(`Dolphins average score: ${dolphinsAVG}`)
+console.log(`Koalas average score: ${koalasAVG}`)
+const minScore = 100
+if (dolphinsAVG > koalasAVG && dolphinsAVG >= minScore) {
+    console.log(`Dolphins win with an average score of ${dolphinsAVG}!`)
+} else if (koalasAVG > dolphinsAVG && koalasAVG >= minScore) {
+    console.log(`Koalas win with an average score of ${koalasAVG}!`)
+} else if (dolphinsAVG === koalasAVG && dolphinsAVG >= minScore) {
+    console.log(`It's a draw! Both teams have an average score of ${dolphinsAVG}!`)
+}else {
+    console.log(`None of the teams won with a score of ${dolphinsAVG}!`)
 }
