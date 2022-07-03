@@ -64,17 +64,43 @@ TEST DATA BONUS 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
 
 GOOD LUCK 😀
 */
-const dolphinsAVG = (97 + 112 + 101) / 3
-const koalasAVG = (109 + 95 + 106) / 3
-console.log(`Dolphins average score: ${dolphinsAVG}`)
-console.log(`Koalas average score: ${koalasAVG}`)
-const minScore = 100
-if (dolphinsAVG > koalasAVG && dolphinsAVG >= minScore) {
-    console.log(`Dolphins win with an average score of ${dolphinsAVG}!`)
-} else if (koalasAVG > dolphinsAVG && koalasAVG >= minScore) {
-    console.log(`Koalas win with an average score of ${koalasAVG}!`)
-} else if (dolphinsAVG === koalasAVG && dolphinsAVG >= minScore) {
-    console.log(`It's a draw! Both teams have an average score of ${dolphinsAVG}!`)
-}else {
-    console.log(`None of the teams won with a score of ${dolphinsAVG}!`)
+// const dolphinsAVG = (97 + 112 + 101) / 3
+// const koalasAVG = (109 + 95 + 106) / 3
+// console.log(`Dolphins average score: ${dolphinsAVG}`)
+// console.log(`Koalas average score: ${koalasAVG}`)
+// const minScore = 100
+// if (dolphinsAVG > koalasAVG && dolphinsAVG >= minScore) {
+//     console.log(`Dolphins win with an average score of ${dolphinsAVG}!`)
+// } else if (koalasAVG > dolphinsAVG && koalasAVG >= minScore) {
+//     console.log(`Koalas win with an average score of ${koalasAVG}!`)
+// } else if (dolphinsAVG === koalasAVG && dolphinsAVG >= minScore) {
+//     console.log(`It's a draw! Both teams have an average score of ${dolphinsAVG}!`)
+// }else {
+//     console.log(`None of the teams won with a score of ${dolphinsAVG}!`)
+// }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// THE SWITCH STATEMENT
+const day = 'saturday'
+switch(day){
+	case 'monday':
+		console.log('Plan course structure')
+		break
+	case 'tuesday':
+		console.log('Prepare theory videos')
+		break
+	case 'wednesday':
+	case 'thursday':
+		console.log('Write code examples')
+		break
+	case 'friday':
+		console.log('Record videos')
+	case 'saturday':
+	case 'sunday':
+		console.log('Enjoy the weekend')
+		break
+	default:
+		console.log('Not a valid day')
 }
