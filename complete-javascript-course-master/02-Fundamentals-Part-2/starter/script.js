@@ -183,7 +183,7 @@ const person = {
 		return this.age
 	},
 	getSummary: function(){
-		return `${this.firstName} is a ${this.age}-year old ${job} and he has a driver's licence`
+		return `${this.firstName} is a ${this.calcAge()}-year old ${this.job} and he has a driver's licence`
 	}
 }
 
