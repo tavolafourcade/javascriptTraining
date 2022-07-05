@@ -149,17 +149,42 @@ GOOD LUCK 😀
 ////////////////////////////////////////////////////////////////////////////////
 
 
+// const person = {
+// 	firstName: 'Octavio',
+// 	lastName: 'Lafourcade',
+// 	age: 2037 - 1995,
+// 	job: 'teacher',
+// 	friends: ['Laura', 'Luis', 'Alex']
+// }
+
+// console.log(person.lastName) // Dot notation
+// console.log(person['lastName']) // Bracket notation
+
+// // Extra Challenge
+// // Octavio has 3 friends, and his best friend is called Laura.
+// console.log(`${person.firstName} has ${person.friends.length} friends, and his best friend is called ${person.friends[0]}`)
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Object Methods
+
+//this: this is a reference to the object that is calling the method
+// "Octavio is a 30-year old teacher and he has a driver's licence"
+
 const person = {
 	firstName: 'Octavio',
 	lastName: 'Lafourcade',
-	age: 2037 - 1995,
+	birthYear: 1995,
 	job: 'teacher',
-	friends: ['Laura', 'Luis', 'Alex']
+	friends: ['Laura', 'Luis', 'Alex'],
+	hasDriversLicense: true,
+	calcAge: function(){
+		this.age = 2037 - this.birthYear
+		return this.age
+	},
+	getSummary: function(){
+		return `${this.firstName} is a ${this.age}-year old ${job} and he has a driver's licence`
+	}
 }
 
-console.log(person.lastName) // Dot notation
-console.log(person['lastName']) // Bracket notation
-
-// Extra Challenge
-// Octavio has 3 friends, and his best friend is called Laura.
-console.log(`${person.firstName} has ${person.friends.length} friends, and his best friend is called ${person.friends[0]}`)
+console.log(person.getSummary())
