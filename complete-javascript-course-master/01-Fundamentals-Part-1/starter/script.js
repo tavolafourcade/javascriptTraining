@@ -130,3 +130,5 @@ const tipPercentage = (billValue >= 50 && billValue <= 300) ? 0.15 : 0.2
 const tip = billValue * tipPercentage
 const total = billValue + tip
 console.log(`The bill was ${billValue}, the tip was ${tip}, and the total value ${total}`)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
