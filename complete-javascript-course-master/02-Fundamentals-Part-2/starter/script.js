@@ -131,16 +131,35 @@ HINT: Remember that an array needs a value in each position, and that value can 
 GOOD LUCK 😀
 */
 
-const calcTip = (billValue) => {
-  const tipPercentage = (billValue >= 50 && billValue <= 300) ? 0.15 : 0.2
-  const tip = billValue * tipPercentage
-  return tip
+// const calcTip = (billValue) => {
+//   const tipPercentage = (billValue >= 50 && billValue <= 300) ? 0.15 : 0.2
+//   const tip = billValue * tipPercentage
+//   return tip
+// }
+
+// const bills = [125, 555, 44]
+
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+
+// const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
+
+// console.log(tips, total);
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+const person = {
+	firstName: 'Octavio',
+	lastName: 'Lafourcade',
+	age: 2037 - 1995,
+	job: 'teacher',
+	friends: ['Laura', 'Luis', 'Alex']
 }
 
-const bills = [125, 555, 44]
+console.log(person.lastName) // Dot notation
+console.log(person['lastName']) // Bracket notation
 
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
-
-const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]
-
-console.log(tips, total);
+// Extra Challenge
+// Octavio has 3 friends, and his best friend is called Laura.
+console.log(`${person.firstName} has ${person.friends.length} friends, and his best friend is called ${person.friends[0]}`)
