@@ -241,38 +241,69 @@ GOOD LUCK 😀
 
 // Looping Arrays, Breaking and Continuing
 
-const types = []
+// const types = []
 
-const person = ['John', 'Smith', 1990, 'teacher', false];
+// const person = ['John', 'Smith', 1990, 'teacher', false];
 
-for (let i = 0; i < person.length; i++) {
-  console.log(person[i], typeof person[i]);
+// for (let i = 0; i < person.length; i++) {
+//   console.log(person[i], typeof person[i]);
 
-  //Fillig types array with the types of the elements in the array
-	// types[i] = typeof person[i]
-  types.push(typeof person[i])
-} 
-console.log('types', types)
+//   //Fillig types array with the types of the elements in the array
+// 	// types[i] = typeof person[i]
+//   types.push(typeof person[i])
+// } 
+// console.log('types', types)
 
-// Second example
-const years = [1990, 1965, 1982, 1937];
-const ages = [];
+// // Second example
+// const years = [1990, 1965, 1982, 1937];
+// const ages = [];
 
-for (let i = 0; i < years.length; i++) {
-  ages.push(2020 - years[i]);
-}
-console.log('ages',ages)
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2020 - years[i]);
+// }
+// console.log('ages',ages)
 
-// continue and break statements
-console.log('---- ONLY STRINGS ----')
-for (let i = 0; i < person.length; i++) {
-  if (typeof person[i] !== 'string') continue // only prints the strings, will skip the numbers such 1990
-  console.log(person[i], typeof person[i]);
-} 
+// // continue and break statements
+// console.log('---- ONLY STRINGS ----')
+// for (let i = 0; i < person.length; i++) {
+//   if (typeof person[i] !== 'string') continue // only prints the strings, will skip the numbers such 1990
+//   console.log(person[i], typeof person[i]);
+// } 
 
-// break
-console.log('---- BREAK WITH NUMBER ----')
-for (let i = 0; i < person.length; i++) {
-  if (typeof person[i] === 'number') break // will break the loop when it finds a number
-  console.log(person[i], typeof person[i]); // after finding the number, it will not print the rest of the array
-} 
+// // break
+// console.log('---- BREAK WITH NUMBER ----')
+// for (let i = 0; i < person.length; i++) {
+//   if (typeof person[i] === 'number') break // will break the loop when it finds a number
+//   console.log(person[i], typeof person[i]); // after finding the number, it will not print the rest of the array
+// } 
+
+////////////////////////////////////////////////////////////////////////////////
+// Looping Backwards and Loops in Loops
+// Looping Backwards
+// const person = ['John', 'Smith', 1990, 'teacher', ['Michael', 'Peter', 'Steven'], true];
+
+// for (let i = person.length - 1; i >= 0; i--) {
+//   console.log(person[i]);
+// }
+
+// // Looping in Loops
+// for (let exercise = 1; exercise < 4; exercise++) {
+//   console.log(`------ Starting exercise number ${exercise} ------`);
+  
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`Exercise ${exercise} Lifting weight repetition ${rep}`);
+//   }
+// }
+
+////////////////////////////////////////////////////////////////////////////////
+// The While Loop
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weight repetition ${rep}`);
+// }
+
+// let rep = 1;
+// while (rep <= 10){
+//   console.log(`WHILE Lifting weight repetition ${rep}`);
+//   rep++;
+// }
