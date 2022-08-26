@@ -62,45 +62,48 @@
 
 ///////////////////////////////////////
 // The this keyword
-console.log(this)
+// console.log(this)
 
-const calcAge = function(birthYear){
-  console.log(2037 - birthYear)
-  console.log(this) // this is undefined in strict mode 
-}
+// const calcAge = function(birthYear){
+//   console.log(2037 - birthYear)
+//   console.log(this) // this is undefined in strict mode 
+// }
 
-// Regular function call
-calcAge(1999)
-
-
-// Let's try an arrow function
-const calcAgeArrowFn = (birthYear) =>{
-  console.log(2037 - birthYear)
-  console.log(this) // this is empty object in strict mode because of the surrounding function (parent scope)
-}
-
-calcAgeArrowFn(1999)
+// // Regular function call
+// calcAge(1999)
 
 
-// Now, let's try a method
-console.log('METHOD FUNCTION')
-const octavio = {
-  name: 'Octavio',
-  birthYear: 1999,
-  calcAge: function(){
-    console.log(this)
-    console.log(2037 - this.birthYear)
-  }
-}
+// // Let's try an arrow function
+// const calcAgeArrowFn = (birthYear) =>{
+//   console.log(2037 - birthYear)
+//   console.log(this) // this is empty object in strict mode because of the surrounding function (parent scope)
+// }
 
-octavio.calcAge() // this is the object that calls the method
+// calcAgeArrowFn(1999)
 
-// Second example
-console.log('MATILDA EXAMPLE')
-const matilda = {
-  birthYear: 2017,
-}
 
-matilda.calcAge = octavio.calcAge // method borrowing from the octavio object into matilda object
-matilda.calcAge() // 20... because the this method is not pointing to the matilda object, but to the octavio object
-// The this keyword always point to the object that calls the method
+// // Now, let's try a method
+// console.log('METHOD FUNCTION')
+// const octavio = {
+//   name: 'Octavio',
+//   birthYear: 1999,
+//   calcAge: function(){
+//     console.log(this)
+//     console.log(2037 - this.birthYear)
+//   }
+// }
+
+// octavio.calcAge() // this is the object that calls the method
+
+// // Second example
+// console.log('MATILDA EXAMPLE')
+// const matilda = {
+//   birthYear: 2017,
+// }
+
+// matilda.calcAge = octavio.calcAge // method borrowing from the octavio object into matilda object
+// matilda.calcAge() // 20... because the this method is not pointing to the matilda object, but to the octavio object
+// // The this keyword always point to the object that calls the method
+
+///////////////////////////////////////
+// Regular functions 
