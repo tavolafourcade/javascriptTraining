@@ -106,4 +106,19 @@
 // // The this keyword always point to the object that calls the method
 
 ///////////////////////////////////////
-// Regular functions 
+// Regular functions vs Arrow functions
+
+var name = 'Laura'
+
+const octavio = {
+  name: 'Octavio',
+  year: 1999,
+  calcAge: function(){
+    console.log(this)
+    console.log(2037 - this.year)
+  },
+
+  greet: () => console.log(`Hey ${this.name}`)
+}
+
+octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
