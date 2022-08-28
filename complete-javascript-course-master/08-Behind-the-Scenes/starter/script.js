@@ -118,7 +118,9 @@ const octavio = {
     console.log(2037 - this.year)
   },
 
-  greet: () => console.log(`Hey ${this.name}`)
+  greet: function () {
+    console.log(`Hey ${this.name}`)
+  }
 }
 
 octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
