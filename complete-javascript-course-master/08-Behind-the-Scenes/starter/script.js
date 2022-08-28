@@ -143,3 +143,14 @@ const octavio = {
 octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
 
 octavio.calcAge()
+
+
+// Arguments keyword
+//Function expression
+const addExpr = function(a,b){
+  console.log(arguments)
+  return a + b
+}
+addExpr(5,4)
+
+const addArrow = (a,b) => a + b
