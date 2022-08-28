@@ -117,7 +117,11 @@ const octavio = {
     console.log(this)
     console.log(2037 - this.year)
 
+    const self = this // self or that
     const isMillenial = function(){
+      console.log('SELF', self)
+      console.log('THIS', this)
+      console.log(self.year >= 1981 && self.year <= 1996)
       console.log(this.year >= 1981 && this.year <= 1996)
     }
     isMillenial()
