@@ -116,6 +116,11 @@ const octavio = {
   calcAge: function(){
     console.log(this)
     console.log(2037 - this.year)
+
+    const isMillenial = function(){
+      console.log(this.year >= 1981 && this.year <= 1996)
+    }
+    isMillenial()
   },
 
   greet: function () {
@@ -124,3 +129,5 @@ const octavio = {
 }
 
 octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
+
+octavio.calcAge()
