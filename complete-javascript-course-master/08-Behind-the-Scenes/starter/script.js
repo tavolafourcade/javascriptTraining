@@ -108,54 +108,55 @@
 ///////////////////////////////////////
 // Regular functions vs Arrow functions
 
-var name = 'Laura'
+// var name = 'Laura'
 
-const octavio = {
-  name: 'Octavio',
-  year: 1999,
-  calcAge: function(){
-    console.log(this)
-    console.log(2037 - this.year)
+// const octavio = {
+//   name: 'Octavio',
+//   year: 1999,
+//   calcAge: function(){
+//     console.log(this)
+//     console.log(2037 - this.year)
 
-    // Solution 1 Using self
-    // const self = this // self or that
-    // const isMillenial = function(){
-    //   console.log('SELF', self)
-    //   console.log('THIS', this)
-    //   console.log(self.year >= 1981 && self.year <= 1996)
-    //   console.log(this.year >= 1981 && this.year <= 1996)
-    // }
+//     // Solution 1 Using self
+//     // const self = this // self or that
+//     // const isMillenial = function(){
+//     //   console.log('SELF', self)
+//     //   console.log('THIS', this)
+//     //   console.log(self.year >= 1981 && self.year <= 1996)
+//     //   console.log(this.year >= 1981 && this.year <= 1996)
+//     // }
 
-    // Solution 2 Using arrow function
-    const isMillenial =() => {
-      console.log('THIS', this)
-      console.log(this.year >= 1981 && this.year <= 1996)
-    }
+//     // Solution 2 Using arrow function
+//     const isMillenial =() => {
+//       console.log('THIS', this)
+//       console.log(this.year >= 1981 && this.year <= 1996)
+//     }
 
-    isMillenial()
-  },
+//     isMillenial()
+//   },
 
-  greet: function () {
-    console.log(`Hey ${this.name}`)
-  }
-}
+//   greet: function () {
+//     console.log(`Hey ${this.name}`)
+//   }
+// }
 
-octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
+// octavio.greet() // Hey undefined because arrow functions doesn't has the this keyword. It will use this keyword from the surrounding function (parent scope) instead which is the global scope
 
-octavio.calcAge()
+// octavio.calcAge()
 
 
-// Arguments keyword
-//Function expression
-const addExpr = function(a,b){
-  console.log(arguments)
-  return a + b
-}
-addExpr(5,4)
+// // Arguments keyword
+// //Function expression
+// const addExpr = function(a,b){
+//   console.log(arguments)
+//   return a + b
+// }
+// addExpr(5,4)
 
-const addArrow = (a,b) => {
-  console.log(arguments)
-  return a + b
-}
+// const addArrow = (a,b) => {
+//   console.log(arguments)
+//   return a + b
+// }
 
-addArrow(5,4)
+// addArrow(5,4)
+
