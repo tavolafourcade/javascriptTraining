@@ -160,3 +160,26 @@
 
 // addArrow(5,4)
 
+///////////////////////////////////////
+
+// Primitives vs. Objects (Primitive vs. Reference Types)
+
+// First example
+let age = 30
+let oldAge = age
+age = 31
+
+console.log('AGE', age, 'OLDAGE', oldAge) // 31 30
+
+// Second example
+
+const me = {
+  name: 'Octavio',
+  age: 30
+}
+
+const friend = me
+friend.age = 27
+
+console.log('ME', me) // {name: 'Octavio', age: 27}
+console.log('FRIEND', friend) // {name: 'Octavio', age: 27}
