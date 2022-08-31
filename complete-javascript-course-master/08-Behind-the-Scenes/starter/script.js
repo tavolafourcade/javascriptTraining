@@ -219,7 +219,8 @@ console.log('after marriage:', marriedJessica) // {firstName: 'Jessica', lastNam
 const jessica2 = {
   firstName: 'Jessica',
   lastName: 'Williams',
-  age: 27
+  age: 27,
+  family: ['Jane', 'Mark', 'Bob']
 }
 
 const jessicaCopy = Object.assign({}, jessica2) // This is a shallow copy
@@ -227,3 +228,9 @@ jessicaCopy.lastName = 'Davis'
 
 console.log('before copy:', jessica2) // {firstName: 'Jessica', lastName: 'Williams', age: 27}
 console.log('after copy:', jessicaCopy) // {firstName: 'Jessica', lastName: 'Davis', age: 27}
+
+jessicaCopy.family.push('Lily')
+jessicaCopy.family.push('Mary')
+
+console.log('before marriage:', jessica2) // {firstName: 'Jessica', lastName: 'Williams', age: 27, family: ['Jane', 'Mark', 'Bob', 'Lily', 'Mary']}
+console.log('after marriage:', jessicaCopy) // {firstName: 'Jessica', lastName: 'Davis', age: 27, family: ['Jane', 'Mark', 'Bob', 'Lily', 'Mary']}
