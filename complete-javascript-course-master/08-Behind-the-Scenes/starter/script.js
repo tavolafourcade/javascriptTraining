@@ -164,22 +164,66 @@
 
 // Primitives vs. Objects (Primitive vs. Reference Types)
 
-// First example
-let age = 30
-let oldAge = age
-age = 31
+// // First example
+// let age = 30
+// let oldAge = age
+// age = 31
 
-console.log('AGE', age, 'OLDAGE', oldAge) // 31 30
+// console.log('AGE', age, 'OLDAGE', oldAge) // 31 30
 
-// Second example
+// // Second example
 
-const me = {
-  name: 'Octavio',
-  age: 30
+// const me = {
+//   name: 'Octavio',
+//   age: 30
+// }
+
+// const friend = me
+// friend.age = 27
+
+// console.log('ME', me) // {name: 'Octavio', age: 27}
+// console.log('FRIEND', friend) // {name: 'Octavio', age: 27}
+
+///////////////////////////////////////
+
+// Primitives vs. Objects in Practice
+
+let lastName = 'Williams'
+let oldLastName = lastName
+
+lastName = 'Davis'
+
+console.log('LASTNAME', lastName, 'OLDLASTNAME', oldLastName) // Davis Williams
+// Each primitive has its own memory space in the stack
+
+// An object is a reference value because it is gonna be stored in the heap
+// And the stack then just keeps a reference to the memory position at which the object is stored in the heap.
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27
 }
 
-const friend = me
-friend.age = 27
+const marriedJessica = jessica // We're just copying the reference to the object
+marriedJessica.lastName = 'Davis'
 
-console.log('ME', me) // {name: 'Octavio', age: 27}
-console.log('FRIEND', friend) // {name: 'Octavio', age: 27}
+// Both objects are pointing to the same memory location in the heap because in the stack they both hold the same memory address reference
+// If we change a property in marriedJessica, it will change the property in jessica as well
+console.log('before marriage:', jessica) // {firstName: 'Jessica', lastName: 'Davis', age: 27}
+console.log('after marriage:', marriedJessica) // {firstName: 'Jessica', lastName: 'Davis', age: 27}
+
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27
+}
+
+const jessicaCopy = Object.assign({}, jessica2) // This is a shallow copy
+jessicaCopy.lastName = 'Davis'
+
+console.log('before copy:', jessica2) // {firstName: 'Jessica', lastName: 'Williams', age: 27}
+console.log('after copy:', jessicaCopy) // {firstName: 'Jessica', lastName: 'Davis', age: 27}
