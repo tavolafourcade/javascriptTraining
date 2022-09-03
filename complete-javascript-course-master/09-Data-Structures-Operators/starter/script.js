@@ -30,7 +30,83 @@ const restaurant = {
       close: 24,
     },
   },
+
+  // orderDelivery: function(obj){
+  //   console.log(obj)
+  // }
+
+  orderDelivery: function({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
+  }
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2
+})
+
+restaurant.orderDelivery({
+  address: 'Via del Sole, 21',
+  starterIndex: 1
+})
+
+///////////////////////////////////////
+// Destructuring Objects
+
+const { name, openingHours, categories } = restaurant;
+console.log('***Destructuring Objects***')
+console.log('NAME', name);
+console.log('OPENING HOURS', openingHours);
+console.log('CATEGORIES', categories);
+
+// What if we want the variable name to be different from the property name?
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags
+} = restaurant;
+
+console.log('***What if we want the variable name to be different from the property name?***')
+console.log('RESTAURANT NAME', restaurantName);
+console.log('HOURS', hours);
+console.log('TAGS', tags);
+
+// Setting default values for variables that don't exist in the object
+
+const {
+  menu = [],
+  starterMenu: starters = []
+} = restaurant;
+
+console.log('***Setting default values for variables that dont exist in the object***')
+console.log('MENU', menu);
+console.log('STARTERS', starters);
+
+// Mutating variables while destructuring objects
+
+let a = 111;
+let b = 999;
+
+const obj = { a: 23, b: 7, c: 14};
+({ a, b } = obj); // We need to wrap the destructuring in parenthesis because the curly braces are used for block statements
+
+console.log('***Mutating variables while destructuring objects***')
+console.log('A', a);
+console.log('B', b);
+
+// Nested objects
+
+const { sat } = openingHours;
+
+const { fri: { open: o, close: c } } = openingHours; // We can also destructure nested objects with even a different variable name
+
+console.log('***Nested objects***')
+console.log('SAT', sat);
+console.log('OPEN', open);
+console.log('CLOSE', close);
 
 ///////////////////////////////////////
 // First exercise Destructuring
@@ -95,5 +171,5 @@ const restaurant = {
 // console.log(p, q, r) // 8 9 undefined
 
 // So we can set default values
-const [p = 1, q = 1, r = 1] = [8, 9]
-console.log(p, q, r) // 8 9 1
+// const [p = 1, q = 1, r = 1] = [8, 9]
+// console.log(p, q, r) // 8 9 1
