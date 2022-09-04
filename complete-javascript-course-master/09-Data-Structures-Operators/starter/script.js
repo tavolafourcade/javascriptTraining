@@ -283,3 +283,43 @@ const restaurant = {
 
 // restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach') // mushrooms (3) ['onion', 'olives', 'spinach']
 // restaurant.orderPizza('mushrooms') // mushrooms (0) []
+
+///////////////////////////////////////
+// Short Circuiting (&& and ||)
+
+// OR operator
+// console.log('-----OR-----')
+// console.log(3 || 'Octavio') // 3
+// console.log('' || 'Octavio') // Octavio
+// console.log(true || 0) // true
+// console.log(undefined || null) // null
+
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null) // Hello
+
+// restaurant.numGuests = 23
+// // Since restaurant.numGuests doesn't exist (undefined)
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10
+// console.log(guests1) // 10
+
+// const guess2 = restaurant.numGuests || 10
+// console.log(guess2) // 10
+
+// // AND operator
+// console.log('-----AND-----')
+// console.log(0 && 'Octavio') // 0
+// console.log(7 && 'Octavio') // Octavio
+
+// console.log('Hello' && 23 && null && 'Octavio') // null
+
+// // Practical example
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach') // mushrooms (1) ['spinach']
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach') // mushrooms (1) ['spinach']
+
+// console.log(undefined || null || 'Hello' || '') // Hello
+
+// console.log('hello' && 5 && 'AND') // AND
+
+///////////////////////////////////////
