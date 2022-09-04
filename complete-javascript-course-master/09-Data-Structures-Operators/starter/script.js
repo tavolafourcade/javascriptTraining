@@ -37,6 +37,10 @@ const restaurant = {
 
   orderDelivery: function({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`)
+  },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`)
   }
 };
 
@@ -176,3 +180,66 @@ const restaurant = {
 // So we can set default values
 // const [p = 1, q = 1, r = 1] = [8, 9]
 // console.log(p, q, r) // 8 9 1
+
+///////////////////////////////////////
+// The Spread Operator
+
+const arr = [7,8,9]
+
+// If we want to create a new array with the previous elements
+const badArray = [1,2,arr[0],arr[1],arr[2]]
+console.log('badArray',badArray) // [1, 2, 7, 8, 9]
+
+// We can use the spread operator to create a new array with the elements of the old array
+const goodArray = [1,2,...arr]
+console.log('goodArray',goodArray) // [1, 2, 7, 8, 9]
+
+// This is also useful when we pass arguments into functions.
+console.log(...goodArray) // 1 2 7 8 9
+
+// Another example
+const newMenu = [...restaurant.mainMenu, 'Gnocci']
+console.log('newMenu',newMenu) // ['Pizza', 'Pasta', 'Risotto', 'Gnocci']
+
+// Use cases for the spread operator
+// 1. Copying arrays
+const mainMenuCopy = [...restaurant.mainMenu] // This is a shallow copy, so if we change the original array, the copy will also change
+
+// 2. Joining arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+console.log('menu',menu) // ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Pizza', 'Pasta', 'Risotto']
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Octavio'
+const letters = [...str, ' ', 'Lafourcade']
+console.log('letters',letters) // ['O', 'c', 't', 'a', 'v', 'i', 'o', ' ', 'Lafourcade']
+console.log(...str) // O c t a v i o
+
+// If we try to use spread operator with literals it will not work because is not a place that expects multiple values separated by commas
+// console.log(`${...str} Lafourcade`) // SyntaxError: Unexpected token '...'
+
+// Real world example with iterable
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?')
+// ]
+
+// console.log('ingredients',ingredients)
+
+// // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2])
+// restaurant.orderPasta(...ingredients) 
+
+// Example with Objects (Since ES18)
+const newRestaurant = {...restaurant, founder: 'Guiseppe', foundedIn: 1998} // The order of the properties doesn't matter in objects
+console.log('newRestaurant',newRestaurant)
+
+// We can also use the spread operator for making a copy of object
+const restaurantCopy = {...restaurant} 
+restaurantCopy.name = 'Ristorante Roma'
+console.log('restaurantCopy1',restaurantCopy.name) // Ristorante Roma
+console.log('restaurant1',restaurant.name) // Classico Italiano
+
+restaurant.name = 'La Arequipeña'
+console.log('restaurantCopy2',restaurantCopy.name) // Ristorante Roma
+console.log('restaurant2',restaurant.name) // La Arequipeña
