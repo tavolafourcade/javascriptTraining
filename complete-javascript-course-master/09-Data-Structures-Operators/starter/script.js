@@ -44,58 +44,72 @@ const restaurant = {
 ///////////////////////////////////////
 // Destructuring Objects
 
-const { name, openingHours, categories } = restaurant;
-console.log('***Destructuring Objects***')
-console.log('NAME', name);
-console.log('OPENING HOURS', openingHours);
-console.log('CATEGORIES', categories);
+// const { name, openingHours, categories } = restaurant;
+// console.log('***Destructuring Objects***')
+// console.log('NAME', name);
+// console.log('OPENING HOURS', openingHours);
+// console.log('CATEGORIES', categories);
 
-// What if we want the variable name to be different from the property name?
+// // What if we want the variable name to be different from the property name?
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags
-} = restaurant;
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags
+// } = restaurant;
 
-console.log('***What if we want the variable name to be different from the property name?***')
-console.log('RESTAURANT NAME', restaurantName);
-console.log('HOURS', hours);
-console.log('TAGS', tags);
+// console.log('***What if we want the variable name to be different from the property name?***')
+// console.log('RESTAURANT NAME', restaurantName);
+// console.log('HOURS', hours);
+// console.log('TAGS', tags);
 
-// Setting default values for variables that don't exist in the object
+// // Setting default values for variables that don't exist in the object
 
-const {
-  menu = [],
-  starterMenu: starters = []
-} = restaurant;
+// const {
+//   menu = [],
+//   starterMenu: starters = []
+// } = restaurant;
 
-console.log('***Setting default values for variables that dont exist in the object***')
-console.log('MENU', menu);
-console.log('STARTERS', starters);
+// console.log('***Setting default values for variables that dont exist in the object***')
+// console.log('MENU', menu);
+// console.log('STARTERS', starters);
 
-// Mutating variables while destructuring objects
+// // Mutating variables while destructuring objects
 
-let a = 111;
-let b = 999;
+// let a = 111;
+// let b = 999;
 
-const obj = { a: 23, b: 7, c: 14};
-({ a, b } = obj); // We need to wrap the destructuring in parenthesis because the curly braces are used for block statements
+// const obj = { a: 23, b: 7, c: 14};
+// ({ a, b } = obj); // We need to wrap the destructuring in parenthesis because the curly braces are used for block statements
 
-console.log('***Mutating variables while destructuring objects***')
-console.log('A', a);
-console.log('B', b);
+// console.log('***Mutating variables while destructuring objects***')
+// console.log('A', a);
+// console.log('B', b);
 
-// Nested objects
+// // Nested objects
 
-const { sat } = openingHours;
+// const { sat } = openingHours;
 
-const { fri: { open: o, close: c } } = openingHours; // We can also destructure nested objects with even a different variable name
+// const { fri: { open: o, close: c } } = openingHours; // We can also destructure nested objects with even a different variable name
 
-console.log('***Nested objects***')
-console.log('SAT', sat);
-console.log('OPEN', open);
-console.log('CLOSE', close);
+// console.log('***Nested objects***')
+// console.log('SAT', sat);
+// console.log('OPEN', open);
+// console.log('CLOSE', close);
+
+// // Destructuring in the arguments of a function
+
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2
+// })
+
+// restaurant.orderDelivery({
+//   address: 'Via del Sole, 21',
+//   starterIndex: 1
+// })
 
 ///////////////////////////////////////
 // First exercise Destructuring
