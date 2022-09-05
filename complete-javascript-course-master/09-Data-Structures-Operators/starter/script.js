@@ -46,7 +46,7 @@ const restaurant = {
   orderPizza: function(mainIngredient, ...otherIngredients){
     console.log(mainIngredient)
     console.log(otherIngredients)
-  }
+  },
 };
 
 
@@ -334,3 +334,43 @@ const restaurant = {
 // console.log(guestCorrect) // 0
 
 ///////////////////////////////////////
+// Logical Assignment Operators
+
+const rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+}
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni',
+}
+
+rest1.numGuests = rest1.numGuests || 10 // 20
+rest2.numGuests = rest2.numGuests || 10 // 10
+
+console.log(rest1)
+console.log(rest2)
+
+// OR Assignment Operator
+rest1.numGuests ||= 10 // 20
+rest2.numGuests ||= 10 // 10
+
+// Nullish Assignment Operator
+rest1.numGuests ??= 10 // 20
+rest2.numGuests ??= 10 // 10
+
+// AND Assignment Operator
+
+// rest2.owner = rest2.owner && 'Anonymous'
+// console.log(rest2)
+
+rest2.owner &&= 'Anonymous'
+console.log(rest2)
+
+
+// rest1.owner = rest1.owner && 'Anonymous'
+// console.log(rest1) // {name: "Capri", numGuests: 20, owner: undefined}
+
+rest1.owner &&= 'Anonymous'
+console.log(rest1) // {name: 'Capri', numGuests: 20}
