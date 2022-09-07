@@ -551,16 +551,18 @@ GOOD LUCK 😀
 // }
 
 // Working with methods
-console.log(restaurant.order?.(0,1) ?? 'Method does not exist')
+// console.log(restaurant.order?.(0,1) ?? 'Method does not exist')
 
-console.log(restaurant.orderRissoto?.(0,1) ?? 'Method does not exist')
+// console.log(restaurant.orderRissoto?.(0,1) ?? 'Method does not exist')
 
-// Working with Arrays
-const users = [{name: 'Octavio', email: 'hello@gmail.com'}]
+// // Working with Arrays
+// const users = [{name: 'Octavio', email: 'hello@gmail.com'}]
 
-// Getting the name of the first element of the array
-console.log(users[0]?.name ?? 'User array empty')
+// // Getting the name of the first element of the array
+// console.log(users[0]?.name ?? 'User array empty')
 
-// Regular way without optional chaining
-if (users.length > 0) console.log(users[0].name)
-else console.log('User array empty')
+// // Regular way without optional chaining
+// if (users.length > 0) console.log(users[0].name)
+// else console.log('User array empty')
+
+///////////////////////////////////////
