@@ -476,50 +476,91 @@ GOOD LUCK 😀
 ///////////////////////////////////////
 // The for-of Loop
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu]
 
-for (const item of menu) console.log(item)
+// for (const item of menu) console.log(item)
 
-// Getting the index of the item
-for (const item of menu.entries()) {
-  console.log(`${item[0] + 1}: ${item[1]}`)
-}
+// // Getting the index of the item
+// for (const item of menu.entries()) {
+//   console.log(`${item[0] + 1}: ${item[1]}`)
+// }
 
-for (const [i, item] of menu.entries()) {
-  console.log(`${i + 1}: ${item}`)
-}
+// for (const [i, item] of menu.entries()) {
+//   console.log(`${i + 1}: ${item}`)
+// }
 
-console.log([...menu.entries()])
+// console.log([...menu.entries()])
 
 ///////////////////////////////////////
 // Enhanced Object Literals
 
-const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
-const openingHours = {
-  [weekdays[3]]: {
-    open: 12,
-    close: 22,
-  },
-  [weekdays[3]]: {
-    open: 11,
-    close: 23,
-  },
-  [`day - ${2 + 4}`]: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-}
+// const openingHours = {
+//   [weekdays[3]]: {
+//     open: 12,
+//     close: 22,
+//   },
+//   [weekdays[3]]: {
+//     open: 11,
+//     close: 23,
+//   },
+//   [`day - ${2 + 4}`]: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// }
 
-const restaurant2 = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+// const restaurant2 = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  // ES6 enhanced object literals
-  openingHours
-}
+//   // ES6 enhanced object literals
+//   openingHours
+// }
 
-console.log(restaurant2)
+// console.log(restaurant2)
+
+
+///////////////////////////////////////
+// Optional Chaining (?.)
+
+// if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// What if we don't know if openingHours exists?
+// if(restaurant.openingHours && restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+
+// console.log(restaurant.openingHours?.mon?.open);
+
+// Another example with the Nullish operator
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// // Loop over days and log to the console whether the restaurant is open or closed on each of the days
+
+// for (const day of days) {
+//   // restaurant.openingHours[day]?.open && console.log(`${day}: Open`)
+  
+//   const open = restaurant.openingHours[day]?.open ?? 'closed'
+//   console.log(`On day ${day}, we open at: ${open}`)
+// }
+
+// Working with methods
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist')
+
+console.log(restaurant.orderRissoto?.(0,1) ?? 'Method does not exist')
+
+// Working with Arrays
+const users = [{name: 'Octavio', email: 'hello@gmail.com'}]
+
+// Getting the name of the first element of the array
+console.log(users[0]?.name ?? 'User array empty')
+
+// Regular way without optional chaining
+if (users.length > 0) console.log(users[0].name)
+else console.log('User array empty')
