@@ -669,6 +669,11 @@ for (const player of game.scored){
   console.log(`Goal ${game.scored.indexOf(player) + 1}: ${player}`)
 }
 
+// Official Solution
+for (const [i,player] of game.scored.entries()){
+  console.log(`Goal ${i + 1}: ${player}`)
+}
+
 // 2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
 const values = Object.values(game.odds)
 console.log(values)
@@ -681,6 +686,14 @@ for (const value of values){
 const avg = sum /values.length
 console.log('AVG', avg)
 
+// Official Solution
+const odds = Object.values(game.odds)
+let average = 0
+for (const odd of odds) average += odd
+
+average /= odds.length
+console.log('AVERAGE', average)
+
 // 3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
 //       Odd of victory Bayern Munich: 1.33
 //       Odd of draw: 3.25
@@ -692,6 +705,12 @@ console.log(`Odd of victory ${game.team1}: ${game.odds.team1}`)
 console.log(`Odd of draw: ${game.odds.x}`)
 console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`)
 
+// Official Solution
+for (const [team, odd] of Object.entries(game.odds)){
+  const teamStr = team === 'x' ? 'draw' : game[team]
+  console.log(`Odd of victory ${teamStr}: ${odd}`)
+}
+
 // BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
 
 // {
@@ -699,3 +718,10 @@ console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`)
 //   Hummels: 1,
 //   Lewandowski: 2
 // }
+
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+console.log('scorers',scorers)
