@@ -767,3 +767,61 @@ GOOD LUCK 😀
 // console.log(staffUnique) // [ 'Waiter', 'Chef', 'Manager' ]
 
 // console.log((new Set(staff)).size) // 3
+
+///////////////////////////////////////
+// 15. Maps: Fundamentals
+
+const rest = new Map()
+
+rest.set('name', 'Classico Italiano')
+rest.set(1, 'Firenze, Italy')
+console.log(rest.set(2, 'Lisbon, Portugal'))
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed')
+
+console.log(rest)
+
+// REading data from a map
+console.log(rest.get('name')) // Classico Italian
+
+// Example 1: Compare the open and close time with the current time
+const time = 21
+
+console.log(rest.get(time > rest.get('open') && time < rest.get('close'))) // We are open
+
+// Check if a map contains a certain key
+console.log(rest.has('categories')) // true
+
+// Delete an element from a map
+rest.delete(2)
+
+console.log(rest)
+
+
+// Getting the size of a map
+console.log(rest.size) // 7
+
+// Delete all the elements from a map
+// rest.clear()
+console.log(rest)
+
+// Use array and objects as map keys
+rest.set([1,2], 'Test')
+console.log(rest)
+console.log(rest.size)
+
+console.log(rest.get([1,2])) // undefined
+
+// In order to not get undefined
+const arr = [1,2,3]
+rest.set(arr, 'Test2')
+console.log(rest.get(arr)) // Test2
+
+// Select an h1 element from the document
+rest.set(document.querySelector('h1'), 'Heading')
+console.log(rest)
