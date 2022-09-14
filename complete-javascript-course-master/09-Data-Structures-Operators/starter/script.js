@@ -917,3 +917,53 @@ GOOD LUCK 😀
 // }
 
 ///////////////////////////////////////
+
+// 19. Working with Strings - Part 1
+
+const airline = 'TAP Air Portugal'
+const plane = 'A320'
+
+console.log(plane[0]) // A
+console.log(plane[1]) // 3
+console.log('B737'[0]) // B
+
+console.log(airline.length) // 16
+
+// indexOf()
+console.log(airline.indexOf('r')) // 6
+console.log(airline.indexOf('Portugal')) // 8
+
+// lastIndexOf()
+console.log(airline.lastIndexOf('r')) // 10
+
+// slice()
+console.log(airline.slice(4)) // Air Portugal
+console.log(airline.slice(4, 7)) // Air
+
+// Get the first word
+console.log(airline.slice(0, airline.indexOf(' '))) // TAP
+
+// Get the last word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal
+
+// We can start from the end of the string
+console.log(airline.slice(-2)) // al
+
+console.log(airline.slice(1, -1)) // AP Air Portuga
+
+// Example 1: Writes a function that receives an airplane seat and logs to the console whether is a middle seat or not.
+const checkMiddleSeat = (seat) => {
+  // B and E are the middle seats
+  const s = seat.slice(-1)
+  if (s === 'B' || s === 'E') console.log('Middle seat')
+  else console.log('You got lucky')
+}
+
+checkMiddleSeat('11B')
+checkMiddleSeat('23C')
+checkMiddleSeat('3E')
+
+// Boxing
+console.log(new String('Octavio'))
+console.log(typeof new String('Octavio')) // object
+console.log(typeof new String('Laura').slice(1)) // string
