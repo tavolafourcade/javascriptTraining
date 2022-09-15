@@ -972,65 +972,65 @@ GOOD LUCK 😀
 
 // 20. Working with Strings - Part 2
 
-const airline = 'TAP Air Portugal'
-console.log(airline.toLowerCase()) // tap air portugal
-console.log(airline.toUpperCase()) // TAP AIR PORTUGAL
+// const airline = 'TAP Air Portugal'
+// console.log(airline.toLowerCase()) // tap air portugal
+// console.log(airline.toUpperCase()) // TAP AIR PORTUGAL
 
-// Fix capitalization in name
-const passenger = 'oCTaVio'
-const passengerLower = passenger.toLowerCase()
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
-console.log(passengerCorrect)
+// // Fix capitalization in name
+// const passenger = 'oCTaVio'
+// const passengerLower = passenger.toLowerCase()
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
+// console.log(passengerCorrect)
 
-// Comparing email
-const email = 'octavio@gmail.com'
-const loginEmail = '  OCTAVIO@gmail.Com \n'
+// // Comparing email
+// const email = 'octavio@gmail.com'
+// const loginEmail = '  OCTAVIO@gmail.Com \n'
 
-const lowerEmail = loginEmail.toLowerCase() 
-const trimmedEmail = lowerEmail.trim()
-console.log(trimmedEmail)
+// const lowerEmail = loginEmail.toLowerCase() 
+// const trimmedEmail = lowerEmail.trim()
+// console.log(trimmedEmail)
 
-const normalizedEmail = loginEmail.toLowerCase().trim()
-console.log(normalizedEmail)
-console.log(email === normalizedEmail) // true
+// const normalizedEmail = loginEmail.toLowerCase().trim()
+// console.log(normalizedEmail)
+// console.log(email === normalizedEmail) // true
 
-// Replacing parts of a string
-const priceGB = '288,97£'
-const priceUS = priceGB.replace(',','.').replace('£','$')
-console.log(priceUS)
+// // Replacing parts of a string
+// const priceGB = '288,97£'
+// const priceUS = priceGB.replace(',','.').replace('£','$')
+// console.log(priceUS)
 
-// Replacing entire words
-const announcement = 'All passengers come to boarding door 23. Boarding door 23!'
-console.log(announcement.replace('door','gate')) // All passengers come to boarding gate 23. Boarding door 23!
-console.log(announcement.replaceAll('door','gate')) // All passengers come to boarding gate 23. Boarding gate 23!
+// // Replacing entire words
+// const announcement = 'All passengers come to boarding door 23. Boarding door 23!'
+// console.log(announcement.replace('door','gate')) // All passengers come to boarding gate 23. Boarding door 23!
+// console.log(announcement.replaceAll('door','gate')) // All passengers come to boarding gate 23. Boarding gate 23!
 
-// We can also user regular expressions
-console.log(announcement.replaceAll(/door/g,'gate')) // All passengers come to boarding gate 23. Boarding gate 23!
+// // We can also user regular expressions
+// console.log(announcement.replaceAll(/door/g,'gate')) // All passengers come to boarding gate 23. Boarding gate 23!
 
 
-// Booleans - includes(), startsWith(), endsWith()
-const plane = 'A320neo'
-console.log(plane.includes('A320')) // true
-console.log(plane.includes('Boeing')) // false
+// // Booleans - includes(), startsWith(), endsWith()
+// const plane = 'A320neo'
+// console.log(plane.includes('A320')) // true
+// console.log(plane.includes('Boeing')) // false
 
-console.log(plane.startsWith('A320')) // true
-console.log(plane.startsWith('Boeing')) // false
+// console.log(plane.startsWith('A320')) // true
+// console.log(plane.startsWith('Boeing')) // false
 
-const plane2 = 'Airbus A320neo'
-if (plane2.startsWith('Airbus') && plane2.endsWith('neo')){
-  console.log('Part of the NEW Airbus family')
-}
+// const plane2 = 'Airbus A320neo'
+// if (plane2.startsWith('Airbus') && plane2.endsWith('neo')){
+//   console.log('Part of the NEW Airbus family')
+// }
 
-// Practice exercise
-const checkBaggage = function(items){
-  const baggage = items.toLowerCase()
-  if (baggage.includes('knife') || baggage.includes('gun')){
-    console.log('You are NOT allowed on board')
-  } else {
-    console.log('Welcome aboard!')
-  }
-}
+// // Practice exercise
+// const checkBaggage = function(items){
+//   const baggage = items.toLowerCase()
+//   if (baggage.includes('knife') || baggage.includes('gun')){
+//     console.log('You are NOT allowed on board')
+//   } else {
+//     console.log('Welcome aboard!')
+//   }
+// }
 
-checkBaggage('I have a laptop, some Food and a pocket Knife')
-checkBaggage('Socks and camera')
-checkBaggage('Got some snacks and a gun for protection')
+// checkBaggage('I have a laptop, some Food and a pocket Knife')
+// checkBaggage('Socks and camera')
+// checkBaggage('Got some snacks and a gun for protection')
