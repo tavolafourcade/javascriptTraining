@@ -1040,71 +1040,73 @@ GOOD LUCK 😀
 // 21. Working with Strings - Part 3
 
 // Split
-console.log('a+very+nice+string'.split('+')) // ['a', 'very', 'nice', 'string']
-console.log('Octavio Lima'.split(' ')) // ['Octavio', 'Lima']
+// console.log('a+very+nice+string'.split('+')) // ['a', 'very', 'nice', 'string']
+// console.log('Octavio Lima'.split(' ')) // ['Octavio', 'Lima']
 
-const [firstName, lastName] = 'Octavio Lafourcade'.split(' ')
+// const [firstName, lastName] = 'Octavio Lafourcade'.split(' ')
 
-// Join
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
-console.log(newName) // Mr. Octavio LAFOURCADE
+// // Join
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ')
+// console.log(newName) // Mr. Octavio LAFOURCADE
 
-// We can use it for capitalize a name
+// // We can use it for capitalize a name
 
-const capitalizeName = function(name){
-  const names = name.split(' ')
-  const namesUpper = []
+// const capitalizeName = function(name){
+//   const names = name.split(' ')
+//   const namesUpper = []
 
-  for(const word of names) {
-    namesUpper.push(word[0].toUpperCase() + word.slice(1))
-  }
-  console.log(namesUpper.join(' '))
-}
+//   for(const word of names) {
+//     namesUpper.push(word[0].toUpperCase() + word.slice(1))
+//   }
+//   console.log(namesUpper.join(' '))
+// }
 
-capitalizeName('jessica ann smith davis') // Jessica Ann Smith Davis
+// capitalizeName('jessica ann smith davis') // Jessica Ann Smith Davis
 
-// Alternative:
+// // Alternative:
 
-const capitalizeName2 = function(name){
-  const names = name.split(' ')
-  const namesUpper = []
+// const capitalizeName2 = function(name){
+//   const names = name.split(' ')
+//   const namesUpper = []
 
-  for(const word of names) {
-    namesUpper.push(word.replace(word[0], word[0].toUpperCase()))
-  }
-  console.log(namesUpper.join(' '))
-}
+//   for(const word of names) {
+//     namesUpper.push(word.replace(word[0], word[0].toUpperCase()))
+//   }
+//   console.log(namesUpper.join(' '))
+// }
 
-capitalizeName2('jessica ann smith davis') // Jessica Ann Smith Davis
+// capitalizeName2('jessica ann smith davis') // Jessica Ann Smith Davis
 
 
-// Padding a string
-const  message = 'Go to gate 23!'
-console.log(message.padStart(25, '+')) // +++++++++++Go to gate 23!
-console.log('Octavio'.padStart(10, '+')) // +++Octavio
+// // Padding a string
+// const  message = 'Go to gate 23!'
+// console.log(message.padStart(25, '+')) // +++++++++++Go to gate 23!
+// console.log('Octavio'.padStart(10, '+')) // +++Octavio
 
-console.log('Octavio'.padEnd(10, '+')) // Octavio+++
+// console.log('Octavio'.padEnd(10, '+')) // Octavio+++
 
-console.log(message.padStart(25, '+').padEnd(35, '+')) // +++++++++++Go to gate 23!++++++++++++
+// console.log(message.padStart(25, '+').padEnd(35, '+')) // +++++++++++Go to gate 23!++++++++++++
 
-// Example 1 with padding
+// // Example 1 with padding
 
-const maskCreditCard = function(number){
-  const str = number + '' // convert to string
-  const last = str.slice(-4)
+// const maskCreditCard = function(number){
+//   const str = number + '' // convert to string
+//   const last = str.slice(-4)
   
-  return last.padStart(16, '*')
-}
+//   return last.padStart(16, '*')
+// }
 
-console.log(maskCreditCard(1234567890123456)) // ************3456
+// console.log(maskCreditCard(1234567890123456)) // ************3456
 
 
-// Repeat
-const message2 = 'Bad weather... All Departures Delayed... ' 
-console.log(message2.repeat(2)) // Bad weather... All Departures Delayed... Bad weather... All Departures Delayed...
+// // Repeat
+// const message2 = 'Bad weather... All Departures Delayed... ' 
+// console.log(message2.repeat(2)) // Bad weather... All Departures Delayed... Bad weather... All Departures Delayed...
 
-const planesInLine = function(n){
-  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`)
-}
+// const planesInLine = function(n){
+//   console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`)
+// }
 
-planesInLine(5) // There are 5 planes in line ✈✈✈✈✈
+// planesInLine(5) // There are 5 planes in line ✈✈✈✈✈
+
+///////////////////////////////////////
