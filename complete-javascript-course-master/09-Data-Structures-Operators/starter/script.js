@@ -1144,23 +1144,36 @@ GOOD LUCK 😀
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 
+// document.querySelector('button').addEventListener('click', ()=>{
+//   const text = document.querySelector('textarea').value; // get the text from the textarea
+//   // 1. Split the text considering _
+//   // 2. Convert the first letter of the second word to uppercase
+//   // 3. Join the words
+//   // 4. Log the result
+//   const rows = text.split('\n')
+//   const rowsTrimmed = rows.map(row => {
+//     return row.trim()
+//   })
+
+//   rowsTrimmed.forEach((row, index) => {
+//     let [first, second] =row.toLowerCase().split('_')
+//     second = second.replace(second[0], second[0].toUpperCase())
+
+//     const rowCamelCase = first + second
+//     const output = rowCamelCase.padEnd(20, ' ') + '✅'.repeat((index + 1))
+//     console.log(output)
+//   })
+// })
+
+// Official solution
 document.querySelector('button').addEventListener('click', ()=>{
   const text = document.querySelector('textarea').value; // get the text from the textarea
-  // 1. Split the text considering _
-  // 2. Convert the first letter of the second word to uppercase
-  // 3. Join the words
-  // 4. Log the result
   const rows = text.split('\n')
-  const rowsTrimmed = rows.map(row => {
-    return row.trim()
+  
+  for(const row of rows){
+    const [first, second] = row.toLowerCase().trim().split('_');
+    // console.log('second', second)
+    const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`
+    console.log(output.padEnd(20) + '✅'.repeat(rows.indexOf(row) + 1))
+  }
   })
-
-  rowsTrimmed.forEach((row, index) => {
-    let [first, second] =row.toLowerCase().split('_')
-    second = second.replace(second[0], second[0].toUpperCase())
-
-    const rowCamelCase = first + second
-    const output = rowCamelCase.padEnd(20, ' ') + '✅'.repeat((index + 1))
-    console.log(output)
-  })
-})
