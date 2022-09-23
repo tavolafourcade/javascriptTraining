@@ -1,37 +1,37 @@
 'use strict';
 
 // 2. How Passing Arguments Works: Value vs Reference
-const flight = 'LH234'
-const octavio = {
-  name: 'Octavio',
-  passport: 123456789,
-}
+// const flight = 'LH234'
+// const octavio = {
+//   name: 'Octavio',
+//   passport: 123456789,
+// }
 
-const checkIn = function(flightNum, passenger) {
-  flightNum = 'LH999'
-  passenger.name = 'Mr. ' + passenger.name
+// const checkIn = function(flightNum, passenger) {
+//   flightNum = 'LH999'
+//   passenger.name = 'Mr. ' + passenger.name
 
-  if (passenger.passport === 123456789) {
-    alert('Check in')
-  } else {
-    alert('Wrong passport!')
-  }
-}
+//   if (passenger.passport === 123456789) {
+//     alert('Check in')
+//   } else {
+//     alert('Wrong passport!')
+//   }
+// }
 
-checkIn(flight, octavio)
-console.log(flight)
-console.log(octavio)
+// checkIn(flight, octavio)
+// console.log(flight)
+// console.log(octavio)
 
-// Is the same as doing...
-const flightNum = flight
-const passenger = octavio
+// // Is the same as doing...
+// const flightNum = flight
+// const passenger = octavio
 
-const newPassport = function(person) {
-  person.passport = Math.trunc(Math.random() * 1000000000)
-}
+// const newPassport = function(person) {
+//   person.passport = Math.trunc(Math.random() * 1000000000)
+// }
 
-newPassport(octavio) // We called the function before and then changed the passport number
-checkIn(flight, octavio) // Since we are affecting the object this alert will show 'Wrong passport!'
+// newPassport(octavio) // We called the function before and then changed the passport number
+// checkIn(flight, octavio) // Since we are affecting the object this alert will show 'Wrong passport!'
 
 ///////////////////////////////////////
 
