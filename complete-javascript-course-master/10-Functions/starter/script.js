@@ -1,5 +1,24 @@
 'use strict';
 
+// 5. Functions returning functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+console.log('greeterHey',greeterHey)
+greeterHey('Octavio');
+greeterHey('Doe');
+
+greet('Hello')('Octavio'); // Hello Octavio
+
+// Using arrow functions
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+greetArrow('Hi')('Octavio'); // Hi Octavio
+
 ///////////////////////////////////////
 
 // 4. Functions accepting callback functions
