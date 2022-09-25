@@ -1,51 +1,53 @@
 'use strict';
 
+///////////////////////////////////////
+
 // 6. The call and apply methods
 
-const lufthansa = {
-  airline: 'Lufthansa',
-  iataCode: 'LH',
-  bookings: [],
-  // book: function () {}
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-    );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-  }
-}
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   // book: function () {}
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   }
+// }
 
-lufthansa.book(239, 'Octavio')
-lufthansa.book(635, 'John Smith')
-console.log(lufthansa.bookings);
+// lufthansa.book(239, 'Octavio')
+// lufthansa.book(635, 'John Smith')
+// console.log(lufthansa.bookings);
 
-// The group created a new airline
-const eurowings = {
-  airline: 'Eurowings',
-  iataCode: 'EW',
-  bookings: []
-}
+// // The group created a new airline
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: []
+// }
 
-// This doesn't work
-const book = lufthansa.book
-// book(34, 'Sarah Williams')
+// // This doesn't work
+// const book = lufthansa.book
+// // book(34, 'Sarah Williams')
 
-book.call(lufthansa, 43, 'Laura')
-book.call(eurowings, 984, 'Rachel')
-console.log(eurowings)
+// book.call(lufthansa, 43, 'Laura')
+// book.call(eurowings, 984, 'Rachel')
+// console.log(eurowings)
 
-const flightDetails = [342, 'Marylin']
-
-
-book.call(eurowings, ...flightDetails)
-console.log(eurowings)
+// const flightDetails = [342, 'Marylin']
 
 
-// Apply method
-const flightData = [583, 'George Cooper']
+// book.call(eurowings, ...flightDetails)
+// console.log(eurowings)
 
-book.apply(eurowings, flightData)
-console.log(eurowings)
+
+// // Apply method
+// const flightData = [583, 'George Cooper']
+
+// book.apply(eurowings, flightData)
+// console.log(eurowings)
 
 
 ///////////////////////////////////////
