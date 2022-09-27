@@ -1,67 +1,69 @@
 'use strict';
 
+///////////////////////////////////////
+
 // The bind method
 
-const lufthansa = {
-  airline: 'Lufthansa',
-  iataCode: 'LH',
-  bookings: [],
-  // book: function () {}
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
-    );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-  }
-}
+// const lufthansa = {
+//   airline: 'Lufthansa',
+//   iataCode: 'LH',
+//   bookings: [],
+//   // book: function () {}
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+//   }
+// }
 
-const eurowings = {
-  airline: 'Eurowings',
-  iataCode: 'EW',
-  bookings: []
-}
+// const eurowings = {
+//   airline: 'Eurowings',
+//   iataCode: 'EW',
+//   bookings: []
+// }
 
-const book = lufthansa.book
+// const book = lufthansa.book
 
-const bookEw = book.bind(eurowings)
-const bookL = book.bind(lufthansa)
-bookEw(23, 'Lauterbach')
-bookL(345, 'Hope')
+// const bookEw = book.bind(eurowings)
+// const bookL = book.bind(lufthansa)
+// bookEw(23, 'Lauterbach')
+// bookL(345, 'Hope')
 
-const bookEw234 = book.bind(eurowings, 234)
-bookEw234('Doe')
-
-
-// With Event Listeners
-lufthansa.planes = 300
-lufthansa.buyPlane = function () {
-  console.log('this',this)
-  this.planes++
-  console.log('this.planes',this.planes)
-}
-
-document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa))
+// const bookEw234 = book.bind(eurowings, 234)
+// bookEw234('Doe')
 
 
-// Partial Application
+// // With Event Listeners
+// lufthansa.planes = 300
+// lufthansa.buyPlane = function () {
+//   console.log('this',this)
+//   this.planes++
+//   console.log('this.planes',this.planes)
+// }
 
-const addTax = (rate, value) => value + value * rate
-console.log(addTax(0.1, 200)) // 220
+// document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa))
 
-const addIgv = addTax.bind(null, 0.18) // null is the this keyword
-// This is equivalent to
-// const addIgv = value => value + value * 0.18
 
-console.log(addIgv(100)) // 118
+// // Partial Application
 
-const addTaxRate = function(rate){
-  return function(value){
-    return value + value * rate
-  }
-}
+// const addTax = (rate, value) => value + value * rate
+// console.log(addTax(0.1, 200)) // 220
 
-const addIgv2 = addTaxRate(0.18)
-console.log(addIgv2(100)) // 118
+// const addIgv = addTax.bind(null, 0.18) // null is the this keyword
+// // This is equivalent to
+// // const addIgv = value => value + value * 0.18
+
+// console.log(addIgv(100)) // 118
+
+// const addTaxRate = function(rate){
+//   return function(value){
+//     return value + value * rate
+//   }
+// }
+
+// const addIgv2 = addTaxRate(0.18)
+// console.log(addIgv2(100)) // 118
 
 ///////////////////////////////////////
 
