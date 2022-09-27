@@ -33,40 +33,40 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
 */
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
-  // This generates [0, 0, 0, 0]. More in the next section 😃
-  answers: new Array(4).fill(0),
-  registerNewAnswer(){
-    // Get answer
-    const answer = Number(prompt(`${this.question} \n${this.options.join('\n')}`))
-    console.log(answer)
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section 😃
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer(){
+//     // Get answer
+//     const answer = Number(prompt(`${this.question} \n${this.options.join('\n')}`))
+//     console.log(answer)
 
-    // Register answer
-    typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++ // if answer is a number and answer is less than the length of the array and the answer is the index of the array, then increment the value of the index by 1
-    this.displayResults()
-    this.displayResults('string')
+//     // Register answer
+//     typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++ // if answer is a number and answer is less than the length of the array and the answer is the index of the array, then increment the value of the index by 1
+//     this.displayResults()
+//     this.displayResults('string')
 
-  },
-  displayResults(type = 'array'){
-    if(type==='array'){
-      console.log(this.answers)
-    } else if (type === 'string'){
-      console.log(`Poll results are ${this.answers.join(', ')}`)
-    }
+//   },
+//   displayResults(type = 'array'){
+//     if(type==='array'){
+//       console.log(this.answers)
+//     } else if (type === 'string'){
+//       console.log(`Poll results are ${this.answers.join(', ')}`)
+//     }
 
-  }
-}
+//   }
+// }
 
-document.querySelector('.poll').addEventListener('click',poll.registerNewAnswer.bind(poll)) // bind the this keyword to the poll object
-// poll.registerNewAnswer()
+// document.querySelector('.poll').addEventListener('click',poll.registerNewAnswer.bind(poll)) // bind the this keyword to the poll object
+// // poll.registerNewAnswer()
 
-const data1 = [5, 2, 3]
-const data2 = [1, 5, 3, 9, 6, 1]
+// const data1 = [5, 2, 3]
+// const data2 = [1, 5, 3, 9, 6, 1]
 
-poll.displayResults.call({answers: data1}) // call the displayResults method and pass in the data1 array as the answers property
-poll.displayResults.call({answers: data2}, 'string') // call the displayResults method and pass in the data2 array as the answers property and the string as the type argument
+// poll.displayResults.call({answers: data1}) // call the displayResults method and pass in the data1 array as the answers property
+// poll.displayResults.call({answers: data2}, 'string') // call the displayResults method and pass in the data2 array as the answers property and the string as the type argument
 ///////////////////////////////////////
 
 // The bind method
