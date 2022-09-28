@@ -1,4 +1,13 @@
 'use strict';
+
+// 9. Immediately Invoked Function Expressions (IIFE)
+
+(function(){
+  console.log('This will never run again')
+})();
+
+(() => console.log('This will also never run again'))();
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
