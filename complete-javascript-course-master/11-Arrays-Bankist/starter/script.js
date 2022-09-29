@@ -108,3 +108,20 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // Join
 
 // console.log(letters.join(' - ')) // a - b - c - d - e - j - i - h - g - f
+
+///////////////////////////////////////
+
+// 2. at method
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+// Before
+console.log(arr[0]) // 1
+
+// With the at() method
+console.log(arr.at(0)) // 1
+
+// Getting the last element of the array
+console.log(arr[arr.length - 1]) // 7
+console.log(arr.slice(-1)[0]) // 7
+console.log(arr.at(-1)) // 7
