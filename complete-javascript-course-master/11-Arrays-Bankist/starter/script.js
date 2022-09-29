@@ -76,7 +76,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 // 1. Simple Array Methods
-let arr = ['a', 'b', 'c', 'd', 'e'];
+// let arr = ['a', 'b', 'c', 'd', 'e'];
 // console.log(arr.slice(2))
 // console.log(arr.slice(2, 4))
 // console.log(arr.slice(-2))
@@ -86,25 +86,25 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // splice
 
-console.log(arr.splice(2)) // remove the element from the array
-console.log(arr)
+// console.log(arr.splice(2)) // remove the element from the array
+// console.log(arr)
 
-arr.splice(-1) // remove the last element from the array
-console.log(arr) // ['a']
+// arr.splice(-1) // remove the last element from the array
+// console.log(arr) // ['a']
 
 // Reverse
 
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
 // console.log(arr2.reverse()) // ['f', 'g', 'h', 'i', 'j']
 // console.log(arr2) // ['f', 'g', 'h', 'i', 'j']
 
 // Concat
-const letters = arr.concat(arr2)
-console.log(letters) // ['a', 'b', 'c', 'd', 'e', 'j', 'i', 'h', 'g', 'f']
+// const letters = arr.concat(arr2)
+// console.log(letters) // ['a', 'b', 'c', 'd', 'e', 'j', 'i', 'h', 'g', 'f']
 // Equivalent to:
 // console.log([...arr, ...arr2]) // ['a', 'b', 'c', 'd', 'e', 'j', 'i', 'h', 'g', 'f']
 
 // Join
 
-console.log(letters.join(' - ')) // a - b - c - d - e - j - i - h - g - f
+// console.log(letters.join(' - ')) // a - b - c - d - e - j - i - h - g - f
