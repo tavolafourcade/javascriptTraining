@@ -1,5 +1,24 @@
 'use strict';
 
+// 10. Closures
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker()
+booker()
+booker()
+
+console.dir(booker)
+
 ///////////////////////////////////////
 
 // 9. Immediately Invoked Function Expressions (IIFE)
