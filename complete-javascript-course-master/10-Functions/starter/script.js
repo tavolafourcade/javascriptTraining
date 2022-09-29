@@ -1,5 +1,33 @@
 'use strict';
 
+// 11. More Closure Examples
+
+// Example 1
+
+let f
+
+const g = function () {
+  const a = 23
+  f = function () {
+    console.log(a * 2)
+  }
+}
+
+const h = function () {
+  const b = 777
+  f = function () {
+    console.log(b * 2)
+  }
+}
+g()
+f() // 46
+
+// Re-assigning f function
+h()
+f() // 1554
+
+console.dir(f)
+
 ///////////////////////////////////////
 
 // 10. Closures
