@@ -156,22 +156,24 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // 4. forEach with Maps and Sets
 
 // Map
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-console.log('currencies',currencies) // Map(3) {"USD" => "United States dollar", "EUR" => "Euro", "GBP" => "Pound sterling"}
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+// console.log('currencies',currencies) // Map(3) {"USD" => "United States dollar", "EUR" => "Euro", "GBP" => "Pound sterling"}
 
-currencies.forEach((value, key, map)=>{
-  console.log(`${key}: ${value}`)
-})
+// currencies.forEach((value, key, map)=>{
+//   console.log(`${key}: ${value}`)
+// })
 
-// Set
-console.log('---- SET ----');
-const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
-console.log('currenciesUnique Set',currenciesUnique) // Set(3) {"USD", "GBP", "EUR"}
+// // Set
+// console.log('---- SET ----');
+// const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+// console.log('currenciesUnique Set',currenciesUnique) // Set(3) {"USD", "GBP", "EUR"}
 
-currenciesUnique.forEach((value, _, map)=>{
-  console.log(`${value}: ${value}`)
-})
+// currenciesUnique.forEach((value, _, map)=>{
+//   console.log(`${value}: ${value}`)
+// })
+
+///////////////////////////////////////
