@@ -177,3 +177,5 @@ const inputClosePin = document.querySelector('.form__input--pin');
 // })
 
 ///////////////////////////////////////
+
+// 5. Project: Bankist App
