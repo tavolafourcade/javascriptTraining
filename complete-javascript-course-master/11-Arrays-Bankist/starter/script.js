@@ -225,21 +225,23 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const checkDogs = (dogsJulia, dogsKate) => {
-  const dogsJuliaCorrected = dogsJulia.slice() // shallow copy
-  dogsJuliaCorrected.splice(0,1)
-  dogsJuliaCorrected.splice(-2)
-  // dogsJulia.slice(1,3) // [5, 2] It gives the same result
-  console.log(dogsJulia)
-  console.log(dogsJuliaCorrected) // [5, 2]
+// const checkDogs = (dogsJulia, dogsKate) => {
+//   const dogsJuliaCorrected = dogsJulia.slice() // shallow copy
+//   dogsJuliaCorrected.splice(0,1)
+//   dogsJuliaCorrected.splice(-2)
+//   // dogsJulia.slice(1,3) // [5, 2] It gives the same result
+//   console.log(dogsJulia)
+//   console.log(dogsJuliaCorrected) // [5, 2]
 
-  const dogs = dogsJuliaCorrected.concat(dogsKate) // [5, 2, 4, 1, 15, 8, 3]
+//   const dogs = dogsJuliaCorrected.concat(dogsKate) // [5, 2, 4, 1, 15, 8, 3]
 
-  dogs.forEach((dog,i) => {
-    console.log(`Dog number ${i + 1} is ${dog<3 ? 'still a puppy 🐶' : `an adult, and is ${dog} years old`} `)
-  })
-}
+//   dogs.forEach((dog,i) => {
+//     console.log(`Dog number ${i + 1} is ${dog<3 ? 'still a puppy 🐶' : `an adult, and is ${dog} years old`} `)
+//   })
+// }
 
 
-checkDogs([3, 5, 2, 12, 7],[4, 1, 15, 8, 3])
-checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
+// checkDogs([3, 5, 2, 12, 7],[4, 1, 15, 8, 3])
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4])
+
+///////////////////////////////////////
