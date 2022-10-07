@@ -252,3 +252,42 @@ GOOD LUCK 😀
 
 
 ///////////////////////////////////////
+
+// 9. The map Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map((el) => {
+  el * eurToUsd
+})
+
+console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+console.log(movementsUSD) // [220, 495, -440, 3300, -715, -143, 77, 1430]
+
+const movementsUSDfor = []
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd)
+
+console.log(movementsUSDfor) // [220, 495, -440, 3300, -715, -143, 77, 1430]
+
+// Second example
+
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// const movementsDescription = movements.map( (movement, i) => {
+//   if (movement > 0) {
+//     return `Movement ${i + 1}: You deposited ${movement}`;
+//   } else {
+//     return `Movement ${i + 1}: You withdrew ${Math.abs(movement)}`;
+//   }
+// })
+
+
+const movementsDescription = movements.map( (movement, i) => {
+  
+    return `Movement ${i + 1}: You ${movement>0? 'deposited': 'withdrew'} ${movement}`
+})
+
+console.log(movementsDescription) // ["Movement 1: You deposited 200", "Movement 2: You deposited 450", "Movement 3: You withdrew 400", "Movement 4: You deposited 3000", "Movement 5: You withdrew 650", "Movement 6: You withdrew 130", "Movement 7: You deposited 70", "Movement 8: You deposited 1300"]
+
