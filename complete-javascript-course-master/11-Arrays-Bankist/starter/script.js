@@ -292,3 +292,17 @@ GOOD LUCK 😀
 // console.log(movementsDescription) // ["Movement 1: You deposited 200", "Movement 2: You deposited 450", "Movement 3: You withdrew 400", "Movement 4: You deposited 3000", "Movement 5: You withdrew 650", "Movement 6: You withdrew 130", "Movement 7: You deposited 70", "Movement 8: You deposited 1300"]
 
 ///////////////////////////////////////
+
+// 10. Computing Usernames
+
+// const user = 'Steven Thomas Williams';
+// const username = user.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
+// console.log(username);
+
+const createUsername = function(accs) {
+  accs.forEach(function(acc) {
+    acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
+  })
+}
+createUsername(accounts)
+console.log(accounts)
