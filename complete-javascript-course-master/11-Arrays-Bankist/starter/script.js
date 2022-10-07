@@ -299,10 +299,12 @@ GOOD LUCK 😀
 // const username = user.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
 // console.log(username);
 
-const createUsername = function(accs) {
-  accs.forEach(function(acc) {
-    acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
-  })
-}
-createUsername(accounts)
-console.log(accounts)
+// const createUsername = function(accs) {
+//   accs.forEach(function(acc) {
+//     acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
+//   })
+// }
+// createUsername(accounts)
+// console.log(accounts)
+
+///////////////////////////////////////
