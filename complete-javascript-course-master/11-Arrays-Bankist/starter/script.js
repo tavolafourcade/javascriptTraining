@@ -71,7 +71,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 //   ['GBP', 'Pound sterling'],
 // ]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -306,5 +306,24 @@ GOOD LUCK 😀
 // }
 // createUsername(accounts)
 // console.log(accounts)
+
+///////////////////////////////////////
+
+// 11. The filter Method
+
+// const deposits = movements.filter(mov => mov > 0)
+// console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+// console.log(deposits) // [200, 450, 3000, 70, 1300]
+
+// const depositsFor = []
+
+// for(const mov of movements) {
+//   if (mov > 0) depositsFor.push(mov)
+// }
+
+// console.log(depositsFor) // [200, 450, 3000, 70, 1300]
+
+// const withdrawals = movements.filter(mov => mov < 0)
+// console.log(withdrawals) // [-400, -650, -130]
 
 ///////////////////////////////////////
