@@ -342,12 +342,14 @@ console.log(accounts)
 
 // Implementing a balance calculation for the application
 
-const calcDisplayBalance = (movements) => {
-  const balance = movements.reduce((acc, mov) => acc + mov,0)
-  labelBalance.textContent = `${balance}€`
+const calcDisplayBalance = (account) => {
+  account.balance = account.movements.reduce((acc, mov) => acc + mov,0)
+  labelBalance.textContent = `${account.balance}€`
+
+  // account.balance = balance
 }
 
-calcDisplayBalance(account1.movements)
+// calcDisplayBalance(account1)
 
 // Maximum value
 
@@ -458,6 +460,14 @@ GOOD LUCK 😀
 
 // 17. Implementing Login
 
+const updateUI = account => {
+  // Display movements
+  displayMovements(account.movements)
+  // Display balance
+  calcDisplayBalance(account)
+  // Display summary
+  calcDisplaySummary(account)
+}
 // Event handler
 
 let currentAccount;
@@ -477,11 +487,34 @@ btnLogin.addEventListener('click', function(e){
 
     inputLoginUsername.value = inputLoginPin.value = ''
     inputLoginPin.blur() // Remove focus from the input field
-    // Display movements
-    displayMovements(currentAccount.movements)
-    // Display balance
-    calcDisplayBalance(currentAccount.movements)
-    // Display summary
-    calcDisplaySummary(currentAccount)
+    
+    // Update UI
+    updateUI(currentAccount)
+  }
+})
+
+///////////////////////////////////////
+
+// 18. Implementing Transfers
+
+btnTransfer.addEventListener('click', function(e){
+  e.preventDefault()
+
+  const amount = Number(inputTransferAmount.value)
+  const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value)
+
+  // console.log(amount, receiverAccount)
+
+  if (amount > 0 && currentAccount.balance >= amount && receiverAccount && receiverAccount?.username !== currentAccount.username) {
+    // console.log('Transfer valid')
+
+    // Doing the transfer
+    currentAccount.movements.push(-amount)
+    receiverAccount.movements.push(amount)
+
+    // Update UI
+    updateUI(currentAccount)
+
+    inputTransferTo.value = inputTransferAmount.value = ''
   }
 })
