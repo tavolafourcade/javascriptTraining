@@ -299,13 +299,13 @@ GOOD LUCK 😀
 // const username = user.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
 // console.log(username);
 
-// const createUsername = function(accs) {
-//   accs.forEach(function(acc) {
-//     acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
-//   })
-// }
-// createUsername(accounts)
-// console.log(accounts)
+const createUsername = function(accs) {
+  accs.forEach(function(acc) {
+    acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join(''); // stw
+  })
+}
+createUsername(accounts)
+console.log(accounts)
 
 ///////////////////////////////////////
 
@@ -327,3 +327,32 @@ GOOD LUCK 😀
 // console.log(withdrawals) // [-400, -650, -130]
 
 ///////////////////////////////////////
+
+// 12. The reduce Method
+
+console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+
+const balance = movements.reduce(function(acc, curr, i, arr){ // We need at least the accumulator and the current value
+  console.log(`Iteration ${i}: ${acc}`)
+  return acc + curr
+}, 0)
+
+console.log('BALANCE', balance) // BALANCE 3840
+
+
+// Implementing a balance calculation for the application
+
+const calcDisplayBalance = (movements) => {
+  const balance = movements.reduce((acc, mov) => acc + mov,0)
+  labelBalance.textContent = `${balance}€`
+}
+
+calcDisplayBalance(account1.movements)
+
+// Maximum value
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc
+  else return mov
+}, movements[0])
+console.log('MAX', max) // 3000
