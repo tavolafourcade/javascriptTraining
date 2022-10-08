@@ -446,3 +446,10 @@ GOOD LUCK 😀
 // console.log(avg1, avg2)
 
 ///////////////////////////////////////
+
+// 16. The find() method
+
+const firstWithdrawal = movements.find(mov => mov < 0) // -400
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis')
+console.log(account) // {owner: "Jessica Davis", movements: Array(8), interestRate: 1.2, pin: 1111, username: "jd"}
