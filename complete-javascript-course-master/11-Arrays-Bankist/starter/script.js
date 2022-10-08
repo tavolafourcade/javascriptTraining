@@ -330,14 +330,14 @@ console.log(accounts)
 
 // 12. The reduce Method
 
-console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+// console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
 
-const balance = movements.reduce(function(acc, curr, i, arr){ // We need at least the accumulator and the current value
-  console.log(`Iteration ${i}: ${acc}`)
-  return acc + curr
-}, 0)
+// const balance = movements.reduce(function(acc, curr, i, arr){ // We need at least the accumulator and the current value
+//   console.log(`Iteration ${i}: ${acc}`)
+//   return acc + curr
+// }, 0)
 
-console.log('BALANCE', balance) // BALANCE 3840
+// console.log('BALANCE', balance) // BALANCE 3840
 
 
 // Implementing a balance calculation for the application
