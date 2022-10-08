@@ -183,23 +183,23 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 // 6. Creating DOM elements
-// const displayMovements = function(movements){
+const displayMovements = function(movements){
 
-//   // Clear the movements container
-//   containerMovements.innerHTML = ''
+  // Clear the movements container
+  containerMovements.innerHTML = ''
 
-//   movements.forEach(function(mov, i){
+  movements.forEach(function(mov, i){
 
-//     const type = mov > 0 ? 'deposit' : 'withdrawal'
-//     const html = `
-//     <div class="movements__row">
-//       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-//       <div class="movements__value">${mov}</div>
-//     </div>`
+    const type = mov > 0 ? 'deposit' : 'withdrawal'
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>`
 
-//     containerMovements.insertAdjacentHTML('afterbegin', html)
-//   })
-// }
+    containerMovements.insertAdjacentHTML('afterbegin', html)
+  })
+}
 
 // displayMovements(account1.movements)
 
@@ -404,22 +404,22 @@ const totalDepositsUSD = movements
   .reduce((acc, mov) => acc + mov, 0)
 console.log(totalDepositsUSD) // 5522
 
-const calcDisplaySummary = movements => {
-  const incomes = movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0)
+const calcDisplaySummary = account => {
+  const incomes = account.movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0)
   labelSumIn.textContent = `${incomes}€`
 
-  const out = movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0)
+  const out = account.movements.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0)
   labelSumOut.textContent = `${Math.abs(out)}€`
 
-  const interest = movements
+  const interest = account.movements
     .filter(mov => mov > 0)
-    .map(deposit => deposit * 1.2/100)
+    .map(deposit => deposit * account.interestRate/100)
     .filter((int, i, arr) => int >= 1)
     .reduce((acc, int) => acc + int, 0)
   labelSumInterest.textContent = `${interest}€`
 }
 
-calcDisplaySummary(account1.movements)
+calcDisplaySummary(account1)
 
 // Coding Challenge #3
 
@@ -455,3 +455,33 @@ GOOD LUCK 😀
 // console.log(account) // {owner: "Jessica Davis", movements: Array(8), interestRate: 1.2, pin: 1111, username: "jd"}
 
 ///////////////////////////////////////
+
+// 17. Implementing Login
+
+// Event handler
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function(e){
+  e.preventDefault() // Prevent form from submitting
+  
+  currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value)
+  console.log(currentAccount)
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)){
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`
+    containerApp.style.opacity = 100  // Making the application visible
+
+    // Clear input fields
+
+    inputLoginUsername.value = inputLoginPin.value = ''
+    inputLoginPin.blur() // Remove focus from the input field
+    // Display movements
+    displayMovements(currentAccount.movements)
+    // Display balance
+    calcDisplayBalance(currentAccount.movements)
+    // Display summary
+    calcDisplaySummary(currentAccount)
+  }
+})
