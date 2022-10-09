@@ -518,3 +518,27 @@ btnTransfer.addEventListener('click', function(e){
     inputTransferTo.value = inputTransferAmount.value = ''
   }
 })
+
+///////////////////////////////////////
+
+// 19. The findIndex() method
+
+btnClose.addEventListener('click', function(e){
+  e.preventDefault()
+  const usernameToDelete = inputCloseUsername.value
+  const usernameToDeletePin = Number(inputClosePin.value)
+
+  if(currentAccount.username === usernameToDelete && currentAccount.pin === usernameToDeletePin){
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username)
+    // console.log(index)
+
+    // Delete account
+    accounts.splice(index, 1)
+
+    // Hide UI
+    containerApp.style.opacity = 0
+    labelWelcome.textContent = 'Log in to get started'
+  }
+  inputCloseUsername.value = inputClosePin.value = ''
+
+})
