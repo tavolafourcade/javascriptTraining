@@ -577,3 +577,36 @@ btnLoan.addEventListener('click', function(e){
 
   inputLoanAmount.value = ''
 })
+
+///////////////////////////////////////
+
+// 21. Flat and FlatMap
+
+flat()
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8]
+console.log('Original array', arr)
+console.log('Array flatted', arr.flat())
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8]
+console.log('Deep array flatted',arrDeep.flat(2))
+
+
+const accountMovements = accounts.map(acc => acc.movements)
+console.log(accountMovements)
+
+const allMovements = accountMovements.flat()
+console.log(allMovements)
+
+const overallBalance = allMovements.reduce((acc,mov) => acc + mov,0) // 17840
+console.log(overallBalance)
+
+// Alternative
+// const overallBalance2 = accounts.map(acc => acc.movements).flat().reduce((acc,mov) => acc + mov,0) // 17840
+
+// flatMap()
+
+const overallBalance2 = accounts
+  .flatMap( acc => acc.movements)
+  .reduce((acc,mov) => acc + mov,0) // 17840
+
+  console.log('overallBalance2', overallBalance2) // 17840
