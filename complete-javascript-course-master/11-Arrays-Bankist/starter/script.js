@@ -183,12 +183,15 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 // 6. Creating DOM elements
-const displayMovements = function(movements){
+const displayMovements = function(movements, sort = false){
 
   // Clear the movements container
   containerMovements.innerHTML = ''
 
-  movements.forEach(function(mov, i){
+  // Sort the movements
+  const movs = sort ? movements.slice().sort((a,b) => a - b) : movements
+
+  movs.forEach(function(mov, i){
 
     const type = mov > 0 ? 'deposit' : 'withdrawal'
     const html = `
@@ -612,3 +615,47 @@ const overallBalance2 = accounts
   console.log('overallBalance2', overallBalance2) // 17840
 
   ///////////////////////////////////////
+
+// 22. Sorting Arrays
+
+// Strings
+const owners = ['Octavio', 'Zach', 'Adam', 'Martha']
+console.log(owners.sort()) // ["Adam", "Martha", "Octavio", "Zach"]
+console.log(owners) // ["Adam", "Martha", "Octavio", "Zach"]
+
+
+// Numbers
+console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+console.log(movements.sort()) // [-130, -400, -650, 1300, 200, 3000, 450, 70]
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+movements.sort((currentValue, nextValue) => {
+  if(currentValue > nextValue) return 1
+  if(currentValue < nextValue) return -1
+})
+
+console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
+
+movements.sort((currentValue, nextValue) => {
+  if(currentValue > nextValue) return -1
+  if(currentValue < nextValue) return 1
+})
+
+console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
+
+movements.sort((a, b) => a - b)
+console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
+
+movements.sort((a, b) => b - a)
+console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
+
+// Implementing a descending sort in our application
+
+let sorted = false
+btnSort.addEventListener('click', function(e){
+  e.preventDefault()
+  displayMovements(currentAccount.movements, !sorted)
+  sorted = !sorted // Switching the value
+  console.log(sorted) // se va a convertir en lo contrario de lo que era antes
+})
