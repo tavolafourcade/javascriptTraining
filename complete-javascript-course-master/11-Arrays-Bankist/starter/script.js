@@ -694,3 +694,50 @@ labelBalance.addEventListener('click', function(e){
   console.log('movementsUI',movementsUI)
   // console.log('movementsUI2',movementsUI2) // [200, 450, -400, 3000, -650, -130, 70, 1300]
 })
+
+///////////////////////////////////////
+
+// 25. Array Methods Practice
+
+// 1. Calculate how much has been deposited in total in the bank
+const bankDepositSum = accounts.flatMap(acc => acc.movements).filter(mov => mov > 0).reduce((sum, mov) => sum + mov, 0) // 25180
+
+
+// 2. Calculate how many deposits have been made in the bank
+
+// const numDeposits1000 = accounts.flatMap(acc => acc.movements).filter(mov => mov >= 1000).length // 6
+
+// Alternative
+const numDeposits1000 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((count, cur) => cur >= 1000 ? ++count : count, 0) // 6
+
+console.log(numDeposits1000)
+
+// 3. Create an object that contains the sum of deposits and withdrawals
+const sums = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((sums, curr) => {
+    // curr > 0 ? sums.deposits += curr : sums.withdrawals += curr
+    sums[curr > 0 ? 'deposits' : 'withdrawals'] += curr
+    return sums
+  }
+    , {deposits: 0, withdrawals: 0})
+
+console.log('sums', sums) // {deposits: 25180, withdrawals: -7340}
+
+// 4.Create a function that converts any string to a title case
+// This is a nice title -> This Is a Nice Title
+
+const convertTitleCase = function(title){
+  const capitalize = str => str[0].toUpperCase() + str.slice(1)
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with', 'and']
+
+  const titleCase = title.toLowerCase().split(' ').map( word => exceptions.includes(word) ?  word : capitalize(word)).join(' ')
+
+  return capitalize(titleCase)
+}
+
+console.log(convertTitleCase('this is a nice title')) // This Is a Nice Title
+console.log(convertTitleCase('this is a LONG title but not too long')) // This Is a Long Title But Not Too Long
+console.log(convertTitleCase('and here is another title with an EXAMPLE')) // And Here Is Another Title With an Example
