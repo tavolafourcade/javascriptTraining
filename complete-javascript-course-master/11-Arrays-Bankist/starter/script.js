@@ -197,7 +197,7 @@ const displayMovements = function(movements, sort = false){
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>`
 
     containerMovements.insertAdjacentHTML('afterbegin', html)
@@ -658,4 +658,38 @@ btnSort.addEventListener('click', function(e){
   displayMovements(currentAccount.movements, !sorted)
   sorted = !sorted // Switching the value
   console.log(sorted) // se va a convertir en lo contrario de lo que era antes
+})
+
+///////////////////////////////////////
+
+// 23. More Ways of Creating and Filling Arrays
+
+// Empty arrays + fill method
+const x = new Array(7) // [empty x 7] creates an array with 7 empty elements
+
+x.fill(1) // [1, 1, 1, 1, 1, 1, 1]
+
+x.fill(1, 3, 5) // [empty x 3, 1, 1, empty x 2]
+
+const arr = [1, 2, 3, 4, 5, 6, 7]
+arr.fill(23, 4, 6) // [1, 2, 3, 4, 23, 23, 7]
+
+// Array.from
+const y = Array.from({length: 7}, () => 1) // [1, 1, 1, 1, 1, 1, 1]
+
+// Create an array from 1 to 7
+const w = Array.from({length: 7}, (cur, i) => i + 1) // [1, 2, 3, 4, 5, 6, 7]
+// cur: current element
+// i: index
+const z = Array.from({length: 7}, (_, i) => i + 1) // [1, 2, 3, 4, 5, 6, 7]
+// _: throw away variable
+
+// Working with the movements from the UI
+labelBalance.addEventListener('click', function(e){
+  e.preventDefault()
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value'), el => Number(el.textContent.replace('€', '')))
+  // const movementsUI2 = [...document.querySelectorAll('.movements__value')].map(el => Number(el.textContent.replace('€', '')))
+  // console.log('movementsUI',movementsUI.map(el => Number(el.textContent.replace('€', ''))))
+  console.log('movementsUI',movementsUI)
+  // console.log('movementsUI2',movementsUI2) // [200, 450, -400, 3000, -650, -130, 70, 1300]
 })
