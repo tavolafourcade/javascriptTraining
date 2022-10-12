@@ -308,7 +308,7 @@ const createUsername = function(accs) {
   })
 }
 createUsername(accounts)
-console.log(accounts)
+// console.log(accounts)
 
 ///////////////////////////////////////
 
@@ -360,7 +360,7 @@ const max = movements.reduce((acc, mov) => {
   if (acc > mov) return acc
   else return mov
 }, movements[0])
-console.log('MAX', max) // 3000
+// console.log('MAX', max) // 3000
 
 ///////////////////////////////////////
 
@@ -407,7 +407,7 @@ const totalDepositsUSD = movements
   .filter(mov => mov > 0)
   .map(mov => mov*eurToUsd)
   .reduce((acc, mov) => acc + mov, 0)
-console.log(totalDepositsUSD) // 5522
+// console.log(totalDepositsUSD) // 5522
 
 const calcDisplaySummary = account => {
   const incomes = account.movements.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0)
@@ -479,7 +479,7 @@ btnLogin.addEventListener('click', function(e){
   e.preventDefault() // Prevent form from submitting
   
   currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value)
-  console.log(currentAccount)
+  // console.log(currentAccount)
 
   if (currentAccount?.pin === Number(inputLoginPin.value)){
     // Display UI and message
@@ -551,19 +551,19 @@ btnClose.addEventListener('click', function(e){
 // 20. Some and Every
 
 // SOME method
-console.log(movements.includes(-130)) // true
+// console.log(movements.includes(-130)) // true
 
 const anyDeposits = movements.some(mov => mov > 1500) // true
 
 // Every method
-console.log(movements.every(mov => mov > 0)) // false
-console.log(account4.movements.every(mov => mov > 0)) // true
+// console.log(movements.every(mov => mov > 0)) // false
+// console.log(account4.movements.every(mov => mov > 0)) // true
 
 // Separate callback
 const deposit = mov => mov > 0
-console.log(movements.some(deposit)) // true
-console.log(movements.every(deposit)) // false
-console.log(movements.filter(deposit)) // [200, 450, 3000, 650, 130, 70]
+// console.log(movements.some(deposit)) // true
+// console.log(movements.every(deposit)) // false
+// console.log(movements.filter(deposit)) // [200, 450, 3000, 650, 130, 70]
 
 btnLoan.addEventListener('click', function(e){
   e.preventDefault()
@@ -595,13 +595,13 @@ btnLoan.addEventListener('click', function(e){
 
 
 const accountMovements = accounts.map(acc => acc.movements)
-console.log(accountMovements)
+// console.log(accountMovements)
 
 const allMovements = accountMovements.flat()
-console.log(allMovements)
+// console.log(allMovements)
 
 const overallBalance = allMovements.reduce((acc,mov) => acc + mov,0) // 17840
-console.log(overallBalance)
+// console.log(overallBalance)
 
 // Alternative
 // const overallBalance2 = accounts.map(acc => acc.movements).flat().reduce((acc,mov) => acc + mov,0) // 17840
@@ -612,7 +612,7 @@ const overallBalance2 = accounts
   .flatMap( acc => acc.movements)
   .reduce((acc,mov) => acc + mov,0) // 17840
 
-  console.log('overallBalance2', overallBalance2) // 17840
+  // console.log('overallBalance2', overallBalance2) // 17840
 
   ///////////////////////////////////////
 
@@ -620,13 +620,13 @@ const overallBalance2 = accounts
 
 // Strings
 const owners = ['Octavio', 'Zach', 'Adam', 'Martha']
-console.log(owners.sort()) // ["Adam", "Martha", "Octavio", "Zach"]
-console.log(owners) // ["Adam", "Martha", "Octavio", "Zach"]
+// console.log(owners.sort()) // ["Adam", "Martha", "Octavio", "Zach"]
+// console.log(owners) // ["Adam", "Martha", "Octavio", "Zach"]
 
 
 // Numbers
-console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
-console.log(movements.sort()) // [-130, -400, -650, 1300, 200, 3000, 450, 70]
+// console.log(movements) // [200, 450, -400, 3000, -650, -130, 70, 1300]
+// console.log(movements.sort()) // [-130, -400, -650, 1300, 200, 3000, 450, 70]
 
 // return < 0, A, B (keep order)
 // return > 0, B, A (switch order)
@@ -635,20 +635,20 @@ movements.sort((currentValue, nextValue) => {
   if(currentValue < nextValue) return -1
 })
 
-console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
+// console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
 
 movements.sort((currentValue, nextValue) => {
   if(currentValue > nextValue) return -1
   if(currentValue < nextValue) return 1
 })
 
-console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
+// console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
 
 movements.sort((a, b) => a - b)
-console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
+// console.log(movements) // [-650, -400, -130, 70, 200, 450, 1300, 3000]
 
 movements.sort((a, b) => b - a)
-console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
+// console.log(movements) // [3000, 1300, 450, 200, 70, -130, -400, -650]
 
 // Implementing a descending sort in our application
 
@@ -657,7 +657,7 @@ btnSort.addEventListener('click', function(e){
   e.preventDefault()
   displayMovements(currentAccount.movements, !sorted)
   sorted = !sorted // Switching the value
-  console.log(sorted) // se va a convertir en lo contrario de lo que era antes
+  // console.log(sorted) // se va a convertir en lo contrario de lo que era antes
 })
 
 ///////////////////////////////////////
@@ -691,7 +691,7 @@ labelBalance.addEventListener('click', function(e){
   const movementsUI = Array.from(document.querySelectorAll('.movements__value'), el => Number(el.textContent.replace('€', '')))
   // const movementsUI2 = [...document.querySelectorAll('.movements__value')].map(el => Number(el.textContent.replace('€', '')))
   // console.log('movementsUI',movementsUI.map(el => Number(el.textContent.replace('€', ''))))
-  console.log('movementsUI',movementsUI)
+  // console.log('movementsUI',movementsUI)
   // console.log('movementsUI2',movementsUI2) // [200, 450, -400, 3000, -650, -130, 70, 1300]
 })
 
@@ -712,7 +712,7 @@ const numDeposits1000 = accounts
   .flatMap(acc => acc.movements)
   .reduce((count, cur) => cur >= 1000 ? ++count : count, 0) // 6
 
-console.log(numDeposits1000)
+// console.log(numDeposits1000)
 
 // 3. Create an object that contains the sum of deposits and withdrawals
 const sums = accounts
@@ -724,7 +724,7 @@ const sums = accounts
   }
     , {deposits: 0, withdrawals: 0})
 
-console.log('sums', sums) // {deposits: 25180, withdrawals: -7340}
+// console.log('sums', sums) // {deposits: 25180, withdrawals: -7340}
 
 // 4.Create a function that converts any string to a title case
 // This is a nice title -> This Is a Nice Title
@@ -738,6 +738,8 @@ const convertTitleCase = function(title){
   return capitalize(titleCase)
 }
 
-console.log(convertTitleCase('this is a nice title')) // This Is a Nice Title
-console.log(convertTitleCase('this is a LONG title but not too long')) // This Is a Long Title But Not Too Long
-console.log(convertTitleCase('and here is another title with an EXAMPLE')) // And Here Is Another Title With an Example
+// console.log(convertTitleCase('this is a nice title')) // This Is a Nice Title
+// console.log(convertTitleCase('this is a LONG title but not too long')) // This Is a Long Title But Not Too Long
+// console.log(convertTitleCase('and here is another title with an EXAMPLE')) // And Here Is Another Title With an Example
+
+///////////////////////////////////////
