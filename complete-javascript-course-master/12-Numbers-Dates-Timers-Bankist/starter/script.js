@@ -392,3 +392,31 @@ btnSort.addEventListener('click', function (e) {
 
 
 ///////////////////////////////////////
+
+// 5. BigInt
+
+console.log(2 ** 53 - 1) // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER) // 9007199254740991
+
+// Creating BigInt
+console.log(4384384838483843442343423464546456546546456546456546323132n) // Returns a BigInt
+
+console.log(BigInt(4384384838483843442343423464546456546546456546456546323132))
+
+// Operations
+
+console.log(10000n + 10000n) // 20000n
+console.log(10000n * 10000n) // 100000000n
+
+// Exceptions
+console.log(20n > 15) // true
+console.log(20n === 20) // false
+console.log(typeof 20n) // bigint
+console.log(20n == '20') // true
+
+const huge = 4384384838483843442343423464546456546546456546456546323132n
+console.log(huge + ' is really big')
+
+// Divisions
+
+console.log(10n / 3n) // 3n
