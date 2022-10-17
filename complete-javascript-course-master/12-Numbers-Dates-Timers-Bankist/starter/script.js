@@ -369,3 +369,24 @@ btnSort.addEventListener('click', function (e) {
 //     if (i % 3 === 0) row.style.backgroundColor = 'blue';
 //   });
 // });
+
+///////////////////////////////////////
+
+// 4. Numeric Separators
+
+// 287,460,000,000
+
+const diameter = 287_460_000_000
+console.log(diameter) // 287,460,000,000
+
+const priceCents = 345_99
+console.log(priceCents) // 345,99
+
+const transferFee1 = 15_00
+console.log(transferFee1) // 15,00
+
+const transferFee2 = 1_500 // 1,500
+
+console.log(Number('230_000')) // NaN
+console.log(parseInt('230_000')) // 230
+
