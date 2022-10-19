@@ -81,19 +81,26 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (account, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort ? account.movements.slice().sort((a, b) => a - b) : account.movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
+    const date = new Date(account.movementsDates[i]);
+
+    const day = `${date.getDate()}`.padStart(2,0)
+    const month = `${date.getMonth() + 1}`.padStart(2,0)
+    const year = date.getFullYear()
+
+    const displayDate = `${day}/${month}/${year}`
+
     const html = `
       <div class="movements__row">
-        <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
+        <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+        <div class="movements__date">${displayDate}</div>
         <div class="movements__value">${mov.toFixed()}€</div>
       </div>
     `;
@@ -142,7 +149,7 @@ createUsernames(accounts);
 
 const updateUI = function (acc) {
   // Display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
 
   // Display balance
   calcDisplayBalance(acc);
@@ -198,6 +205,11 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAcc.movementsDates.push(new Date().toISOString());
+
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -211,6 +223,9 @@ btnLoan.addEventListener('click', function (e) {
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
     currentAccount.movements.push(amount);
+
+    // Add loan date
+    currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
     updateUI(currentAccount);
@@ -244,7 +259,7 @@ btnClose.addEventListener('click', function (e) {
 let sorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
-  displayMovements(currentAccount.movements, !sorted);
+  displayMovements(currentAccount, !sorted);
   sorted = !sorted;
 });
 
@@ -427,7 +442,7 @@ const huge = 4384384838483843442343423464546456546546456546456546323132n
 // 6. Creating Dates
 
 // Create a date
-const now = new Date()
+// const now = new Date()
 // console.log(now) // Mon Oct 17 2022 09:52:33 GMT-0500 (hora estándar de Perú)
 
 // console.log(new Date('Dec 24, 2015')) // Thu Dec 24 2015 00:00:00 GMT-0500 (hora estándar de Perú)
@@ -461,3 +476,22 @@ const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-05
 future.setFullYear(2040)
 
 ///////////////////////////////////////
+
+// 7. Adding Dates to "Bankist" App
+
+// Fake always logged in
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+// Create current date
+const now = new Date()
+const day = `${now.getDate()}`.padStart(2,0)
+const month = `${now.getMonth() + 1}`.padStart(2,0)
+const year = now.getFullYear()
+
+const hour = `${now.getHours() + 1}`.padStart(2,0)
+const minutes = `${now.getMinutes() + 1}`.padStart(2,0)
+
+// day/month/year
+labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
