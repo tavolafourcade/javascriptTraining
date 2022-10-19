@@ -443,19 +443,21 @@ const now = new Date()
 const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
 
 // get methods
-console.log(future.getFullYear()) // 2037
-console.log(future.getMonth()) // 10
-console.log(future.getDate()) // 19
-console.log(future.getDay()) // 4 Day of the week
-console.log(future.getHours()) // 15
-console.log(future.getMinutes()) // 23
-console.log(future.getSeconds()) // 0
+// console.log(future.getFullYear()) // 2037
+// console.log(future.getMonth()) // 10
+// console.log(future.getDate()) // 19
+// console.log(future.getDay()) // 4 Day of the week
+// console.log(future.getHours()) // 15
+// console.log(future.getMinutes()) // 23
+// console.log(future.getSeconds()) // 0
 
-console.log(future.toISOString()) // 2037-11-19T20:23:00.000Z International standard
-console.log(future.getTime()) // 2142274980000 Time stamp
-console.log(new Date(2142274980000)) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
+// console.log(future.toISOString()) // 2037-11-19T20:23:00.000Z International standard
+// console.log(future.getTime()) // 2142274980000 Time stamp
+// console.log(new Date(2142274980000)) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
 
-console.log(Date.now()) // 1634561000000 Time stamp of the current date
+// console.log(Date.now()) // 1634561000000 Time stamp of the current date
 
 // set methods
 future.setFullYear(2040)
+
+///////////////////////////////////////
