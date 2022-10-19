@@ -423,3 +423,39 @@ const huge = 4384384838483843442343423464546456546546456546456546323132n
 
 
 ///////////////////////////////////////
+
+// 6. Creating Dates
+
+// Create a date
+const now = new Date()
+// console.log(now) // Mon Oct 17 2022 09:52:33 GMT-0500 (hora estándar de Perú)
+
+// console.log(new Date('Dec 24, 2015')) // Thu Dec 24 2015 00:00:00 GMT-0500 (hora estándar de Perú)
+
+// Working with the application project
+
+// console.log(new Date(account1.movementsDates[0])) // Mon Nov 18 2019 16:31:17 GMT-0500 (hora estándar de Perú)
+
+// console.log(new Date(2037, 10, 19, 15, 23, 5)) // Thu Nov 19 2037 15:23:05 GMT-0500 (hora estándar de Perú)
+
+// Working with date methods
+
+const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
+
+// get methods
+console.log(future.getFullYear()) // 2037
+console.log(future.getMonth()) // 10
+console.log(future.getDate()) // 19
+console.log(future.getDay()) // 4 Day of the week
+console.log(future.getHours()) // 15
+console.log(future.getMinutes()) // 23
+console.log(future.getSeconds()) // 0
+
+console.log(future.toISOString()) // 2037-11-19T20:23:00.000Z International standard
+console.log(future.getTime()) // 2142274980000 Time stamp
+console.log(new Date(2142274980000)) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
+
+console.log(Date.now()) // 1634561000000 Time stamp of the current date
+
+// set methods
+future.setFullYear(2040)
