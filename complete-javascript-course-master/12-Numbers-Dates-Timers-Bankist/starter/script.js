@@ -455,7 +455,7 @@ const huge = 4384384838483843442343423464546456546546456546456546323132n
 
 // Working with date methods
 
-const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
+// const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
 
 // get methods
 // console.log(future.getFullYear()) // 2037
@@ -495,3 +495,5 @@ const minutes = `${now.getMinutes() + 1}`.padStart(2,0)
 
 // day/month/year
 labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
+
+///////////////////////////////////////
