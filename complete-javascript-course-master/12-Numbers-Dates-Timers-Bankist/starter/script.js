@@ -22,8 +22,8 @@ const account1 = {
     '2020-04-01T10:17:24.185Z',
     '2020-05-08T14:11:59.604Z',
     '2020-05-27T17:01:17.194Z',
-    '2020-07-11T23:36:17.929Z',
-    '2020-07-12T10:51:36.790Z',
+    '2022-10-10T18:49:59.371Z',
+    '2022-10-20T12:01:20.894Z',
   ],
   currency: 'EUR',
   locale: 'pt-PT', // de-DE
@@ -81,6 +81,25 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
+const formatMovementDate = date => {
+  const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24))
+
+  const dayPassed = calcDaysPassed(new Date(), date)
+  console.log('dayPassed',dayPassed)
+
+  if(dayPassed === 0) return 'Today'
+  if(dayPassed === 1) return 'Yesterday'
+  if(dayPassed <= 7) return `${dayPassed} days ago`
+  
+  const day = `${date.getDate()}`.padStart(2,0)
+  const month = `${date.getMonth() + 1}`.padStart(2,0)
+  const year = date.getFullYear()
+  
+  return `${day}/${month}/${year}`
+  
+
+}
+
 const displayMovements = function (account, sort = false) {
   containerMovements.innerHTML = '';
 
@@ -90,13 +109,8 @@ const displayMovements = function (account, sort = false) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const date = new Date(account.movementsDates[i]);
-
-    const day = `${date.getDate()}`.padStart(2,0)
-    const month = `${date.getMonth() + 1}`.padStart(2,0)
-    const year = date.getFullYear()
-
-    const displayDate = `${day}/${month}/${year}`
-
+    
+    const displayDate = formatMovementDate(date)
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
@@ -473,7 +487,7 @@ const huge = 4384384838483843442343423464546456546546456546456546323132n
 // console.log(Date.now()) // 1634561000000 Time stamp of the current date
 
 // set methods
-future.setFullYear(2040)
+// future.setFullYear(2040)
 
 ///////////////////////////////////////
 
@@ -497,3 +511,18 @@ const minutes = `${now.getMinutes() + 1}`.padStart(2,0)
 labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
 
 ///////////////////////////////////////
+
+const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
+console.log(Number(future)) // 2142274980000
+console.log(+future) // 2142274980000
+
+// Create a function that takes 2 dates and returns the difference in days
+// const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1)
+
+const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10
+console.log(days1) // 864000000 miliseconds
+console.log(days1 / (1000*60*60*24)) // 10 days
+
+// Working with our application
+
+// If one movement happened today display "today" instead of the current date.
