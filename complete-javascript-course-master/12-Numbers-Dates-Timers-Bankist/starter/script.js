@@ -101,6 +101,13 @@ const formatMovementDate = (date, locale) => {
 
 }
 
+const formatCurrency = (value, locale, currency) => {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currency,
+  }).format(value);
+}
+
 const displayMovements = function (account, sort = false) {
   containerMovements.innerHTML = '';
 
@@ -112,11 +119,15 @@ const displayMovements = function (account, sort = false) {
     const date = new Date(account.movementsDates[i]);
     
     const displayDate = formatMovementDate(date, account.locale)
+
+    
+    const formattedMov = formatCurrency(mov, account.locale, account.currency)
+    console.log('formattedMov',formattedMov)
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${mov.toFixed()}€</div>
+        <div class="movements__value">${formattedMov}</div>
       </div>
     `;
 
@@ -126,19 +137,29 @@ const displayMovements = function (account, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
+
+  const formattedBalance = formatCurrency(acc.balance, acc.locale, acc.currency)
+
+  labelBalance.textContent = `${formattedBalance}`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
+
+  const formattedIncome = formatCurrency(incomes, acc.locale, acc.currency)
+
+  labelSumIn.textContent = `${formattedIncome}`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
+
+  const formattedOut = formatCurrency(Math.abs(out), acc.locale, acc.currency)
+
+
+  labelSumOut.textContent = `${formattedOut}`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -148,7 +169,10 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+
+  const formattedInterest = formatCurrency(interest, acc.locale, acc.currency)
+
+  labelSumInterest.textContent = `${formattedInterest}`;
 };
 
 const createUsernames = function (accs) {
@@ -192,6 +216,15 @@ const nowDate = new Date()
 // const locale = navigator.language
 // labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(nowDate) // This will create a formatting for english US language
 
+const options = {
+  hour: 'numeric',
+  minute: 'numeric',
+  day: 'numeric',
+  month: 'numeric', //long or 2-digit
+  year: 'numeric',
+  // weekday: 'long' //short or narrow
+}
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -201,6 +234,7 @@ btnLogin.addEventListener('click', function (e) {
   );
   console.log(currentAccount);
 
+  
   if (currentAccount?.pin === +inputLoginPin.value) {
     // Display UI and message
     labelWelcome.textContent = `Welcome back, ${
@@ -209,15 +243,16 @@ btnLogin.addEventListener('click', function (e) {
     containerApp.style.opacity = 100;
 
     // Create current date and time
+    
     const now = new Date()
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-      day: 'numeric',
-      month: 'numeric', //long or 2-digit
-      year: 'numeric',
-      // weekday: 'long' //short or narrow
-    }
+    // const options = {
+    //   hour: 'numeric',
+    //   minute: 'numeric',
+    //   day: 'numeric',
+    //   month: 'numeric', //long or 2-digit
+    //   year: 'numeric',
+    //   // weekday: 'long' //short or narrow
+    // }
     labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now) // This will create a formatting for english US language
     
 
@@ -582,3 +617,15 @@ const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10
 
 // 10. Internationalizing Numbers (Intl)
 
+const num = 3884764.23
+
+const options2 = {
+  style: 'unit', // percent, currency
+  unit: 'mile-per-hour', // celsius
+  currency: 'EUR',
+  // useGrouping: false 
+}
+console.log('US: ', new Intl.NumberFormat('en-US',options2).format(num)) // 3,884,764.23 mph
+console.log('Germany: ', new Intl.NumberFormat('de-DE', options2).format(num)) // 3.884.764,23 mi/h
+console.log('Syria: ', new Intl.NumberFormat('ar-SY', options2).format(num)) // ٣٬٨٨٤٬٧٦٤٫٢٣
+console.log('Navigator: ', new Intl.NumberFormat(navigator.language, options2).format(num)) // 3,884,764.23 mi/h
