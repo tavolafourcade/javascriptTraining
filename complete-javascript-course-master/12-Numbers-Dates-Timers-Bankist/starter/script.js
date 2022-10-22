@@ -85,7 +85,7 @@ const formatMovementDate = date => {
   const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24))
 
   const dayPassed = calcDaysPassed(new Date(), date)
-  console.log('dayPassed',dayPassed)
+  // console.log('dayPassed',dayPassed)
 
   if(dayPassed === 0) return 'Today'
   if(dayPassed === 1) return 'Yesterday'
@@ -513,16 +513,19 @@ labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
 ///////////////////////////////////////
 
 const future = new Date(2037, 10, 19, 15, 23) // Thu Nov 19 2037 15:23:00 GMT-0500 (hora estándar de Perú)
-console.log(Number(future)) // 2142274980000
-console.log(+future) // 2142274980000
+// console.log(Number(future)) // 2142274980000
+// console.log(+future) // 2142274980000
 
 // Create a function that takes 2 dates and returns the difference in days
-// const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1)
+const calcDaysPassed = (date1, date2) => Math.abs(date2 - date1)
 
 const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10
-console.log(days1) // 864000000 miliseconds
-console.log(days1 / (1000*60*60*24)) // 10 days
+// console.log(days1) // 864000000 miliseconds
+// console.log(days1 / (1000*60*60*24)) // 10 days
 
 // Working with our application
 
 // If one movement happened today display "today" instead of the current date.
+// This was done in the application function 
+
+///////////////////////////////////////
