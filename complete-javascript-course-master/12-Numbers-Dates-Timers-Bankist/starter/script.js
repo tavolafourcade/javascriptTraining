@@ -81,7 +81,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const formatMovementDate = date => {
+const formatMovementDate = (date, locale) => {
   const calcDaysPassed = (date1, date2) => Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24))
 
   const dayPassed = calcDaysPassed(new Date(), date)
@@ -91,11 +91,12 @@ const formatMovementDate = date => {
   if(dayPassed === 1) return 'Yesterday'
   if(dayPassed <= 7) return `${dayPassed} days ago`
   
-  const day = `${date.getDate()}`.padStart(2,0)
-  const month = `${date.getMonth() + 1}`.padStart(2,0)
-  const year = date.getFullYear()
+  // const day = `${date.getDate()}`.padStart(2,0)
+  // const month = `${date.getMonth() + 1}`.padStart(2,0)
+  // const year = date.getFullYear()
   
-  return `${day}/${month}/${year}`
+  // return `${day}/${month}/${year}`
+  return new Intl.DateTimeFormat(locale).format(date)
   
 
 }
@@ -110,7 +111,7 @@ const displayMovements = function (account, sort = false) {
 
     const date = new Date(account.movementsDates[i]);
     
-    const displayDate = formatMovementDate(date)
+    const displayDate = formatMovementDate(date, account.locale)
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
@@ -176,6 +177,21 @@ const updateUI = function (acc) {
 // Event handlers
 let currentAccount;
 
+// Experimenting with the API
+const nowDate = new Date()
+
+// const options = {
+//   hour: 'numeric',
+//   minute: 'numeric',
+//   day: 'numeric',
+//   month: 'long', //numeric or 2-digit
+//   year: 'numeric',
+//   weekday: 'long' //short or narrow
+// }
+
+// const locale = navigator.language
+// labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(nowDate) // This will create a formatting for english US language
+
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
   e.preventDefault();
@@ -191,6 +207,19 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+
+    // Create current date and time
+    const now = new Date()
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      day: 'numeric',
+      month: 'numeric', //long or 2-digit
+      year: 'numeric',
+      // weekday: 'long' //short or narrow
+    }
+    labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(now) // This will create a formatting for english US language
+    
 
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -500,15 +529,30 @@ containerApp.style.opacity = 100;
 
 // Create current date
 const now = new Date()
-const day = `${now.getDate()}`.padStart(2,0)
-const month = `${now.getMonth() + 1}`.padStart(2,0)
-const year = now.getFullYear()
 
-const hour = `${now.getHours() + 1}`.padStart(2,0)
-const minutes = `${now.getMinutes() + 1}`.padStart(2,0)
+// const options = {
+//   hour: 'numeric',
+//   minute: 'numeric',
+//   day: 'numeric',
+//   month: 'numeric', //long or 2-digit
+//   year: 'numeric',
+//   // weekday: 'long' //short or narrow
+// }
+labelDate.textContent = new Intl.DateTimeFormat(currentAccount.locale, options).format(nowDate) // This will create a formatting for english US language
+
+const locale = navigator.language
+// labelDate.textContent = new Intl.DateTimeFormat(locale, options).format(nowDate) // This will create a formatting for english US language
+
+
+// const day = `${now.getDate()}`.padStart(2,0)
+// const month = `${now.getMonth() + 1}`.padStart(2,0)
+// const year = now.getFullYear()
+
+// const hour = `${now.getHours() + 1}`.padStart(2,0)
+// const minutes = `${now.getMinutes() + 1}`.padStart(2,0)
 
 // day/month/year
-labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
+// labelDate.textContent = `${day}/${month}/${year}, ${hour}:${minutes}`
 
 ///////////////////////////////////////
 
@@ -529,3 +573,6 @@ const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10
 // This was done in the application function 
 
 ///////////////////////////////////////
+
+// 8. Internationalizing Dates (Intl)
+
