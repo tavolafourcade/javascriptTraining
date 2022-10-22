@@ -574,5 +574,11 @@ const days1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 24)) // 10
 
 ///////////////////////////////////////
 
-// 8. Internationalizing Dates (Intl)
+// 8. Operations with Dates
+// Developed along the code
+
+// 9. Internationalizing Dates (Intl)
+// Developed along the code
+
+// 10. Internationalizing Numbers (Intl)
 
