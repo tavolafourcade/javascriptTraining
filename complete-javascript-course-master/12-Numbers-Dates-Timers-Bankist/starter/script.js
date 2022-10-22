@@ -625,7 +625,9 @@ const options2 = {
   currency: 'EUR',
   // useGrouping: false 
 }
-console.log('US: ', new Intl.NumberFormat('en-US',options2).format(num)) // 3,884,764.23 mph
-console.log('Germany: ', new Intl.NumberFormat('de-DE', options2).format(num)) // 3.884.764,23 mi/h
-console.log('Syria: ', new Intl.NumberFormat('ar-SY', options2).format(num)) // ٣٬٨٨٤٬٧٦٤٫٢٣
-console.log('Navigator: ', new Intl.NumberFormat(navigator.language, options2).format(num)) // 3,884,764.23 mi/h
+// console.log('US: ', new Intl.NumberFormat('en-US',options2).format(num)) // 3,884,764.23 mph
+// console.log('Germany: ', new Intl.NumberFormat('de-DE', options2).format(num)) // 3.884.764,23 mi/h
+// console.log('Syria: ', new Intl.NumberFormat('ar-SY', options2).format(num)) // ٣٬٨٨٤٬٧٦٤٫٢٣
+// console.log('Navigator: ', new Intl.NumberFormat(navigator.language, options2).format(num)) // 3,884,764.23 mi/h
+
+///////////////////////////////////////
