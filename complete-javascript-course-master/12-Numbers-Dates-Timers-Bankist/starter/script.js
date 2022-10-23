@@ -122,7 +122,7 @@ const displayMovements = function (account, sort = false) {
 
     
     const formattedMov = formatCurrency(mov, account.locale, account.currency)
-    console.log('formattedMov',formattedMov)
+    // console.log('formattedMov',formattedMov)
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
@@ -299,14 +299,14 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movement
+    setTimeout(() => {// Add movement
     currentAccount.movements.push(amount);
 
     // Add loan date
     currentAccount.movementsDates.push(new Date().toISOString());
 
     // Update UI
-    updateUI(currentAccount);
+    updateUI(currentAccount);}, 3000)
   }
   inputLoanAmount.value = '';
 });
@@ -631,3 +631,14 @@ const options2 = {
 // console.log('Navigator: ', new Intl.NumberFormat(navigator.language, options2).format(num)) // 3,884,764.23 mi/h
 
 ///////////////////////////////////////
+
+// 11. Timers: setTimeout and setInterval
+
+// setTimeout
+const ingredients = ['olives', 'spinach'];
+const pizzaTimer = setTimeout((ing1, ing2) => console.log(`Here is your pizza 🍕 with ${ing1} and ${ing2}`),
+  3000,
+  ...ingredients) // This will execute the function after 3 seconds
+console.log('Waiting...')
+
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer) // This will stop the timer
