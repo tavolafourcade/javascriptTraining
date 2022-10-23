@@ -642,3 +642,9 @@ const pizzaTimer = setTimeout((ing1, ing2) => console.log(`Here is your pizza ðŸ
 console.log('Waiting...')
 
 if (ingredients.includes('spinach')) clearTimeout(pizzaTimer) // This will stop the timer
+
+// setInterval
+setInterval(() => {
+  const now = new Date()
+  console.log(now)
+}, 1000)
