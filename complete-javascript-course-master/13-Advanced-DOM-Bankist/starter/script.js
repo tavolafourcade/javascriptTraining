@@ -29,3 +29,22 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+///////////////////////////////////////
+
+// Selecting elements
+
+console.log('DOCUMENT ELEMENT', document.documentElement);
+console.log('HEAD', document.head);
+console.log('BODY', document.body);
+
+console.log('HEADER', document.querySelector('.header'));
+
+const allSections = document.querySelectorAll('.section');
+console.log('allSections', allSections);
+
+document.getElementById('section--1');
+const allButtons = document.getElementsByTagName('button')
+console.log('allButtons', allButtons)
+
+console.log('all buttons with class btn',document.getElementsByClassName('btn'))
