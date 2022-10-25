@@ -90,3 +90,7 @@ console.log(getComputedStyle(message).height) // 43.5px
 
 // Modyfing the style
 message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'
+
+
+// CSS Custom properties (CSS variables)
+document.documentElement.style.setProperty('--color-primary', 'orangered')
