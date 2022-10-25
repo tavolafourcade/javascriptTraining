@@ -34,20 +34,20 @@ document.addEventListener('keydown', function (e) {
 
 // Selecting elements
 
-console.log('DOCUMENT ELEMENT', document.documentElement);
-console.log('HEAD', document.head);
-console.log('BODY', document.body);
+// console.log('DOCUMENT ELEMENT', document.documentElement);
+// console.log('HEAD', document.head);
+// console.log('BODY', document.body);
 
 const header = document.querySelector('.header')
 
 const allSections = document.querySelectorAll('.section');
-console.log('allSections', allSections);
+// console.log('allSections', allSections);
 
 document.getElementById('section--1');
 const allButtons = document.getElementsByTagName('button')
-console.log('allButtons', allButtons)
+// console.log('allButtons', allButtons)
 
-console.log('all buttons with class btn',document.getElementsByClassName('btn'))
+// console.log('all buttons with class btn',document.getElementsByClassName('btn'))
 
 // Creating and inserting elements
 
@@ -82,11 +82,11 @@ document
 message.style.backgroundColor = '#37383d'
 message.style.width = '120%'
 
-console.log(message.style.height) // don't show anything
-console.log(message.style.backgroundColor) // rgb(55, 56, 61)
+// console.log(message.style.height) // don't show anything
+// console.log(message.style.backgroundColor) // rgb(55, 56, 61)
 
-console.log(getComputedStyle(message).color) // rgb(255, 255, 255)
-console.log(getComputedStyle(message).height) // 43.5px 
+// console.log(getComputedStyle(message).color) // rgb(255, 255, 255)
+// console.log(getComputedStyle(message).height) // 43.5px 
 
 // Modyfing the style
 message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'
@@ -97,25 +97,25 @@ document.documentElement.style.setProperty('--color-primary', 'orangered')
 
 // Attributes
 const logo = document.querySelector('.nav__logo')
-console.log('logo.alt', logo.alt) // Bankist logo
-console.log('logo.src', logo.src) // http://127.0.0.1:8080/starter/img/logo.png
-console.log('logo.className', logo.className) // nav__logo
+// console.log('logo.alt', logo.alt) // Bankist logo
+// console.log('logo.src', logo.src) // http://127.0.0.1:8080/starter/img/logo.png
+// console.log('logo.className', logo.className) // nav__logo
 
-console.log(logo.getAttribute('src')) // img/logo.png
+// console.log(logo.getAttribute('src')) // img/logo.png
 
 // Non-standard
-console.log('logo.designer', logo.designer) // undefined
-console.log(logo.getAttribute('designer')) // Jonas
+// console.log('logo.designer', logo.designer) // undefined
+// console.log(logo.getAttribute('designer')) // Jonas
 
 logo.alt = 'Beautiful minimalist logo'
 logo.setAttribute('company', 'Bankist')
 
 const link = document.querySelector('.twitter-link')
-console.log('link.href', link.href) // https://twitter.com/jonasschmedtmann
+// console.log('link.href', link.href) // https://twitter.com/jonasschmedtmann
 
 
 // Data attributes
-console.log(logo.dataset.versionNumber) // 3.0
+// console.log(logo.dataset.versionNumber) // 3.0
 
 // Classes
 logo.classList.add('c', 'j')
@@ -124,3 +124,6 @@ logo.classList.toggle('c')
 logo.classList.contains('c')
 
 logo.className = 'octavio'
+
+
+///////////////////////////////////////
