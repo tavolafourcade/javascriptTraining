@@ -130,7 +130,6 @@ logo.className = 'octavio'
 
 // 5. Implementing Smooth Scrolling
 
-// Old school
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 
@@ -151,10 +150,16 @@ btnScrollTo.addEventListener('click', function (e) {
   // This top is relative to the viewport, no to the document
   // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset) // not smooth movement to the section 1
 
-  window.scrollTo({
-    left: s1coords.left + window.pageXOffset,
-    top: s1coords.top + window.pageYOffset,
-    behavior: 'smooth' // smooth movement to the section 1
-  })
 
+  // Old school
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: 'smooth' // smooth movement to the section 1
+  // })
+
+
+  // Modern way
+  section1.scrollIntoView({behavior: 'smooth'})
 })
