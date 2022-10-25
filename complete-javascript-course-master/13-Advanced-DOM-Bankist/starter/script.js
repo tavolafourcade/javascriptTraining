@@ -38,7 +38,7 @@ console.log('DOCUMENT ELEMENT', document.documentElement);
 console.log('HEAD', document.head);
 console.log('BODY', document.body);
 
-console.log('HEADER', document.querySelector('.header'));
+const header = document.querySelector('.header')
 
 const allSections = document.querySelectorAll('.section');
 console.log('allSections', allSections);
@@ -48,3 +48,31 @@ const allButtons = document.getElementsByTagName('button')
 console.log('allButtons', allButtons)
 
 console.log('all buttons with class btn',document.getElementsByClassName('btn'))
+
+// Creating and inserting elements
+
+// insertAdjacentHTML
+
+const message = document.createElement('div')
+message.classList.add('cookie-message')
+// message.textContent = 'We use cookies for improved functionality and analytics.'
+message.innerHTML = 'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>' 
+
+// prepend() - insert at the beginning
+// header.prepend(message)
+
+// append() - insert at the end
+header.append(message)
+
+// header.append(message.cloneNode(true))
+
+// before() - insert before
+// header.before(message)
+
+// after() - insert after
+// header.after(message)
+
+// Delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', () => message.remove())
