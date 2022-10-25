@@ -76,3 +76,17 @@ header.append(message)
 document
   .querySelector('.btn--close-cookie')
   .addEventListener('click', () => message.remove())
+
+
+// Styles
+message.style.backgroundColor = '#37383d'
+message.style.width = '120%'
+
+console.log(message.style.height) // don't show anything
+console.log(message.style.backgroundColor) // rgb(55, 56, 61)
+
+console.log(getComputedStyle(message).color) // rgb(255, 255, 255)
+console.log(getComputedStyle(message).height) // 43.5px 
+
+// Modyfing the style
+message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'
