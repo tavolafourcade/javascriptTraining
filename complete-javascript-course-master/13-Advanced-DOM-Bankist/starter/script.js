@@ -94,3 +94,33 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) +
 
 // CSS Custom properties (CSS variables)
 document.documentElement.style.setProperty('--color-primary', 'orangered')
+
+// Attributes
+const logo = document.querySelector('.nav__logo')
+console.log('logo.alt', logo.alt) // Bankist logo
+console.log('logo.src', logo.src) // http://127.0.0.1:8080/starter/img/logo.png
+console.log('logo.className', logo.className) // nav__logo
+
+console.log(logo.getAttribute('src')) // img/logo.png
+
+// Non-standard
+console.log('logo.designer', logo.designer) // undefined
+console.log(logo.getAttribute('designer')) // Jonas
+
+logo.alt = 'Beautiful minimalist logo'
+logo.setAttribute('company', 'Bankist')
+
+const link = document.querySelector('.twitter-link')
+console.log('link.href', link.href) // https://twitter.com/jonasschmedtmann
+
+
+// Data attributes
+console.log(logo.dataset.versionNumber) // 3.0
+
+// Classes
+logo.classList.add('c', 'j')
+logo.classList.remove('c')
+logo.classList.toggle('c')
+logo.classList.contains('c')
+
+logo.className = 'octavio'
