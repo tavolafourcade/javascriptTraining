@@ -170,6 +170,16 @@ btnScrollTo.addEventListener('click', function (e) {
 
 const h1 = document.querySelector('h1')
 
-h1.addEventListener('mouseenter', () => {
+const alertH1 = () => {
   alert('addEventListener: Great! You are reading  the heading :D')
-})
+  // h1.removeEventListener('mouseenter', alertH1) // remove the event listener
+}
+h1.addEventListener('mouseenter', alertH1) 
+
+// Another way to add event listener
+// h1.onmouseenter = function (e) {
+//   alert('onmouseenter: Great! You are reading  the heading :D')
+// }
+
+// Remove the event listener after 3000ms
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000)
