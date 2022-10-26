@@ -183,3 +183,21 @@ h1.addEventListener('mouseenter', alertH1)
 
 // Remove the event listener after 3000ms
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000)
+
+///////////////////////////////////////
+
+// 7. Event Propagation: Bubbling and Capturing
+
+/*
+
+When someone clicks a link, the DOM generates a click event right away. But, this event is not generated at the target element (the element where the event happened: the anchor element). Instead, the event is generated at the root of the document (at the top of the DOM tree).
+
+From there, the ******************************Capturing phase****************************** happens where the event travels all the way down from the document route to the target element. As soon the event reaches the target, the **********************target phase********************** begins where events can be handled right at the target with event listeners (the event listeners wait for a certain event to happen on a certain element, as soon as the event occurs it runs the attached callback function like the alert window of the previous example).
+
+As the event reaches the target, the event travels all the way up to the Document route again  in the so-called ****************************bubbling phase****************************. So, we say that events bubble up from the target to the document route.
+
+This means that is as if the event also happened in each of the parent elements. If we attach the same event listener to a parent element then we get the exact same alert window (of the previous example), for the section element as well. So we would have handled the exact same event twice, once at its target, and once at one of its parent elements.
+
+Not all types of events do have a capturing and bubbling phase. Some are created on the target element and can only been handled there.
+
+*/
