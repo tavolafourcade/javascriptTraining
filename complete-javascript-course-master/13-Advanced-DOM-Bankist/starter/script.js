@@ -93,7 +93,7 @@ message.style.height = Number.parseFloat(getComputedStyle(message).height, 10) +
 
 
 // CSS Custom properties (CSS variables)
-document.documentElement.style.setProperty('--color-primary', 'orangered')
+// document.documentElement.style.setProperty('--color-primary', 'orangered')
 
 // Attributes
 const logo = document.querySelector('.nav__logo')
@@ -201,3 +201,31 @@ This means that is as if the event also happened in each of the parent elements.
 Not all types of events do have a capturing and bubbling phase. Some are created on the target element and can only been handled there.
 
 */
+
+///////////////////////////////////////
+
+// 8. Event Propagation in Practice
+
+// We’ll attach event handlers to the navigation links and its parent elements
+
+const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor()
+  console.log('LINK', e.target, e.currentTarget)
+  console.log(e.currentTarget === this) // true
+
+  // Stop propagation
+  e.stopPropagation()
+})
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor()
+  console.log('CONTAINER', e.target, e.currentTarget)
+})
+
+  document.querySelector('.nav').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor()
+  console.log('NAV', e.target, e.currentTarget)
+})
