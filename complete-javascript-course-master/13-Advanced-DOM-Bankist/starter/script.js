@@ -258,3 +258,51 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 })
 
 ///////////////////////////////////////
+
+// 10.  DOM Traversing
+
+const h1el = document.querySelector('h1')
+
+// Going downwards: selecting child elements
+console.log(h1el.querySelectorAll('.highlight')) // NodeList(2) [span.highlight, span.highlight]
+
+// Getting the direct children
+console.log(h1el.childNodes) // NodeList(9) [text, br, text, span.highlight, text, br, text, span.highlight, text]
+
+// Getting the text
+console.log(h1el.textContent) // We're building a bankist app //innerHtml
+
+// Getting the children in other way
+console.log(h1.children)
+
+// Getting the first element child
+h1el.firstElementChild.style.color = 'white'
+
+// Getting the last element child
+h1el.lastElementChild.style.color = 'orangered'
+
+
+// Going upwards: selecting parent elements
+console.log(h1el.parentNode) // <div class="header">...</div>
+
+// Getting the parent element
+console.log(h1el.parentElement) // <div class="header">...</div>
+
+// Getting a parent element no matter how many levels up in the DOM tree
+h1el.closest('.header').style.background = 'var(--gradient-secondary)'
+
+h1el.closest('h1').style.background = 'var(--gradient-primary)'
+
+// Going sideways: selecting sibling elements
+console.log(h1el.previousElementSibling) // null first child
+console.log(h1el.nextElementSibling) // <h4>A simpler banking experience for a simpler life.</h4>
+
+console.log(h1el.previousSibling) // #text
+console.log(h1el.nextSibling) // #text
+
+// Getting all siblings
+console.log(h1el.parentElement.children)
+
+[...h1el.parentElement.children].forEach(function(el) {
+  if (el !== h1el) el.style.transform = 'scale(0.5)'
+} )
