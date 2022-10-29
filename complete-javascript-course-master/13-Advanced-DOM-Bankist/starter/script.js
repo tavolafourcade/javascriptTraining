@@ -380,9 +380,9 @@ nav.addEventListener('mouseout', handleHover.bind(1))
 // Sticky navigation
 
 const initialCoords = section1.getBoundingClientRect()
-console.log(initialCoords)
+// console.log(initialCoords)
 window.addEventListener('scroll', () => {
-  console.log(window.scrollY)
+  // console.log(window.scrollY)
 
   if(window.scrollY > initialCoords.top) {
     nav.classList.add('sticky') 
@@ -391,3 +391,5 @@ window.addEventListener('scroll', () => {
   }
     
 })
+
+///////////////////////////////////////
