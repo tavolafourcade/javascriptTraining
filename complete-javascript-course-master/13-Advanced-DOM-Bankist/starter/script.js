@@ -347,3 +347,28 @@ tabsContainer.addEventListener('click', (e) => {
 ///////////////////////////////////////
 
 // 12. Passing Arguments to Event Handlers
+
+// Menu fade animation
+
+const handleHover = function(e){
+  // console.log(this)
+  if (e.target.classList.contains('nav__link')){
+    const link = e.target
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link')
+    const logo = link.closest('.nav').querySelector('img')
+
+    //Changing opacity of all siblings
+    siblings.forEach(el => {
+      if(el !== link) el.style.opacity = this
+    })
+    // logo.style.opacity = 0.5
+  }
+}
+const nav = document.querySelector('nav')
+
+// nav.addEventListener('mouseover', (e) => {
+//   handleHover(e, 0.5)
+// })
+nav.addEventListener('mouseover', handleHover.bind(0.5))
+
+nav.addEventListener('mouseout', handleHover.bind(1))
