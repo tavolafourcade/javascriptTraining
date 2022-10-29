@@ -238,24 +238,24 @@ Not all types of events do have a capturing and bubbling phase. Some are created
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 const randomColor = () => `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`
 
-document.querySelector('.nav__link').addEventListener('click', function (e) {
-  this.style.backgroundColor = randomColor()
-  // console.log('LINK', e.target, e.currentTarget)
-  // console.log(e.currentTarget === this) // true
+// document.querySelector('.nav__link').addEventListener('click', function (e) {
+//   this.style.backgroundColor = randomColor()
+//   // console.log('LINK', e.target, e.currentTarget)
+//   // console.log(e.currentTarget === this) // true
 
-  // Stop propagation
-  e.stopPropagation()
-})
+//   // Stop propagation
+//   e.stopPropagation()
+// })
 
-document.querySelector('.nav__links').addEventListener('click', function(e) {
-  this.style.backgroundColor = randomColor()
-  // console.log('CONTAINER', e.target, e.currentTarget)
-})
+// document.querySelector('.nav__links').addEventListener('click', function(e) {
+//   this.style.backgroundColor = randomColor()
+//   // console.log('CONTAINER', e.target, e.currentTarget)
+// })
 
-  document.querySelector('.nav').addEventListener('click', function(e) {
-  this.style.backgroundColor = randomColor()
-  // console.log('NAV', e.target, e.currentTarget)
-})
+//   document.querySelector('.nav').addEventListener('click', function(e) {
+//   this.style.backgroundColor = randomColor()
+//   // console.log('NAV', e.target, e.currentTarget)
+// })
 
 ///////////////////////////////////////
 
@@ -276,10 +276,10 @@ const h1el = document.querySelector('h1')
 // console.log(h1.children)
 
 // Getting the first element child
-h1el.firstElementChild.style.color = 'white'
+// h1el.firstElementChild.style.color = 'white'
 
 // Getting the last element child
-h1el.lastElementChild.style.color = 'orangered'
+// h1el.lastElementChild.style.color = 'orangered'
 
 
 // Going upwards: selecting parent elements
@@ -289,9 +289,9 @@ h1el.lastElementChild.style.color = 'orangered'
 // console.log(h1el.parentElement) // <div class="header">...</div>
 
 // Getting a parent element no matter how many levels up in the DOM tree
-h1el.closest('.header').style.background = 'var(--gradient-secondary)'
+// h1el.closest('.header').style.background = 'var(--gradient-secondary)'
 
-h1el.closest('h1').style.background = 'var(--gradient-primary)'
+// h1el.closest('h1').style.background = 'var(--gradient-primary)'
 
 // Going sideways: selecting sibling elements
 // console.log(h1el.previousElementSibling) // null first child
@@ -345,3 +345,5 @@ tabsContainer.addEventListener('click', (e) => {
 })
 
 ///////////////////////////////////////
+
+// 12. Passing Arguments to Event Handlers
