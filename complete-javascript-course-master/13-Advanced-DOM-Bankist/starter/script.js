@@ -309,3 +309,39 @@ h1el.closest('h1').style.background = 'var(--gradient-primary)'
 
 
 ///////////////////////////////////////
+
+// 11. Building a Tabbed Component
+
+const tabs = document.querySelectorAll('.operations__tab')
+const tabsContainer = document.querySelector('.operations__tab-container')
+const tabsContent = document.querySelectorAll('.operations__content')
+
+// Adding event handlers to buttons
+
+
+// This is a bad practice because if we have 200 tabs we will have 200 callback functions
+// tabs.forEach(tab => tab.addEventListener('click', () => console.log('TAB')))
+
+// Instead, we'll use event delegation: attaching the event handler to the parent element of the tabs
+tabsContainer.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.operations__tab')
+  console.log(clicked)
+
+  // Guard clause
+  if(!clicked) return
+
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'))
+  // Remove active content areas
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'))
+
+  // Activate tab
+  clicked.classList.add('operations__tab--active')
+  // Activate content area
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active')
+  // console.log('clicked',clicked)
+  // console.log('clicked dataset', clicked.dataset)
+  // console.log(clicked.dataset.tab)
+})
+
+///////////////////////////////////////
