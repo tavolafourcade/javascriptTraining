@@ -72,7 +72,7 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 
 const header = document.querySelector('.header')
 
-const allSections = document.querySelectorAll('.section');
+// const allSections = document.querySelectorAll('.section');
 // console.log('allSections', allSections);
 
 document.getElementById('section--1');
@@ -201,7 +201,7 @@ const alertH1 = () => {
   alert('addEventListener: Great! You are reading  the heading :D')
   // h1.removeEventListener('mouseenter', alertH1) // remove the event listener
 }
-h1.addEventListener('mouseenter', alertH1) 
+// h1.addEventListener('mouseenter', alertH1) 
 
 // Another way to add event listener
 // h1.onmouseenter = function (e) {
@@ -422,3 +422,30 @@ const headerObserver = new IntersectionObserver(stickyNav, {
   rootMargin: `-${navHeight}px`
 })
 headerObserver.observe(header)
+
+///////////////////////////////////////
+
+// 15. Revealing Elements on Scroll
+
+// Reveal sections
+const allSections = document.querySelectorAll('.section')
+
+const revealSection = (entries, observer) => {
+  const [entry] = entries
+  console.log(entry)
+
+  if(!entry.isIntersecting) return
+  
+  entry.target.classList.remove('section--hidden')
+  observer.unobserve(entry.target)
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15
+})
+
+allSections.forEach(function(section) {
+  sectionObserver.observe(section)
+  section.classList.add('section--hidden')
+})
