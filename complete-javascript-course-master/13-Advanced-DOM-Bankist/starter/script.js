@@ -150,12 +150,12 @@ const link = document.querySelector('.twitter-link')
 // console.log(logo.dataset.versionNumber) // 3.0
 
 // Classes
-logo.classList.add('c', 'j')
-logo.classList.remove('c')
-logo.classList.toggle('c')
-logo.classList.contains('c')
+// logo.classList.add('c', 'j')
+// logo.classList.remove('c')
+// logo.classList.toggle('c')
+// logo.classList.contains('c')
 
-logo.className = 'octavio'
+// logo.className = 'octavio'
 
 
 ///////////////////////////////////////
