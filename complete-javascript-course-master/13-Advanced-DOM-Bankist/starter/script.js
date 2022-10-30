@@ -432,7 +432,7 @@ const allSections = document.querySelectorAll('.section')
 
 const revealSection = (entries, observer) => {
   const [entry] = entries
-  console.log(entry)
+  // console.log(entry)
 
   if(!entry.isIntersecting) return
   
@@ -448,4 +448,34 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 allSections.forEach(function(section) {
   sectionObserver.observe(section)
   section.classList.add('section--hidden')
+})
+
+///////////////////////////////////////
+
+// 16. Lazy Loading Images
+const imgTargets = document.querySelectorAll('img[data-src]')
+// console.log(imgTargets)
+
+const loadImg = (entries, observer) => {
+  const [entry] = entries
+
+  if(!entry.isIntersecting) return
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src //dataset stores special properties
+
+  entry.target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img')
+  })
+
+  observer.unobserve(entry.target)
+}
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px' // load image 200px before it appears in the viewport
+})
+
+imgTargets.forEach((img) => {
+  imgObserver.observe(img)
 })
