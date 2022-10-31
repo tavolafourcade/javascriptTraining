@@ -581,3 +581,25 @@ document.addEventListener('keydown', (e) => {
 }
 
 slider()
+
+///////////////////////////////////////
+
+// 19. Lifecycle DOM Events
+
+// DOM Content Loaded event
+
+document.addEventListener('DOMContentLoaded', (e) => {
+  console.log('HTML parsed and DOM tree built!', e)
+} )
+
+// Load event
+window.addEventListener('load', (e) => {
+  console.log('Page fully loaded', e)
+} )
+
+// Before unload event
+window.addEventListener('beforeunload', (e) => {
+  e.preventDefault()
+  console.log(e)
+  e.returnValue = ''
+} )
