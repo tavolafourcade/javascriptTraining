@@ -588,18 +588,24 @@ slider()
 
 // DOM Content Loaded event
 
-document.addEventListener('DOMContentLoaded', (e) => {
-  console.log('HTML parsed and DOM tree built!', e)
-} )
+// document.addEventListener('DOMContentLoaded', (e) => {
+//   // console.log('HTML parsed and DOM tree built!', e)
+// } )
 
-// Load event
-window.addEventListener('load', (e) => {
-  console.log('Page fully loaded', e)
-} )
+// // Load event
+// window.addEventListener('load', (e) => {
+//   // console.log('Page fully loaded', e)
+// } )
 
-// Before unload event
-window.addEventListener('beforeunload', (e) => {
-  e.preventDefault()
-  console.log(e)
-  e.returnValue = ''
-} )
+// // Before unload event
+// window.addEventListener('beforeunload', (e) => {
+//   e.preventDefault()
+//   // console.log(e)
+//   e.returnValue = ''
+// } )
+
+///////////////////////////////////////
+
+// 20. Efficient Script Loading: defer and async
+
+// Check Notion for notes
