@@ -447,7 +447,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(function(section) {
   sectionObserver.observe(section)
-  section.classList.add('section--hidden')
+  // section.classList.add('section--hidden')
 })
 
 ///////////////////////////////////////
@@ -479,3 +479,54 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTargets.forEach((img) => {
   imgObserver.observe(img)
 })
+
+///////////////////////////////////////
+
+// 17. Building a Slider Component: Part 1
+
+// Slider
+
+const slides = document.querySelectorAll('.slide')
+
+const btnLeft = document.querySelector('.slider__btn--left')
+const btnRight = document.querySelector('.slider__btn--right')
+
+let curSlide = 0
+const maxSlide = slides.length
+
+// const slider = document.querySelector('.slider')
+// slider.style.transform = 'scale(0.5)'
+// slider.style.overflow = 'visible'
+
+const goToSlide = (slide) => {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i-slide)}%)`
+  })
+}
+
+goToSlide(0)
+// Next slide
+const nextSlide = () => {
+  if(curSlide === maxSlide - 1) {
+    curSlide = 0
+  } else {
+    curSlide++
+
+  }
+  goToSlide(curSlide)
+}
+
+const prevSlide = () => {
+  if(curSlide === 0) {
+    curSlide = maxSlide - 1
+  } else {
+    curSlide--
+  }
+  goToSlide(curSlide)
+}
+
+btnRight.addEventListener('click', nextSlide)
+btnLeft.addEventListener('click', prevSlide)
+// curSlide = 1: -100%, 0%, 100%, 200%
+
+///////////////////////////////////////
