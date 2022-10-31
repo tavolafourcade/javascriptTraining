@@ -530,3 +530,14 @@ btnLeft.addEventListener('click', prevSlide)
 // curSlide = 1: -100%, 0%, 100%, 200%
 
 ///////////////////////////////////////
+
+// 18. Building a Slider Component: Part 2
+
+// Attaching event handler to a keyboard event
+document.addEventListener('keydown', (e) => {
+  console.log(e)
+  if(e.key === 'ArrowLeft') prevSlide()
+
+  // With short circuiting
+  e.key === 'ArrowRight' && nextSlide()
+})
