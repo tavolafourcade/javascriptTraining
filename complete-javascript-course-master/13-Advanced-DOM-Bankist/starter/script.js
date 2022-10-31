@@ -485,14 +485,46 @@ imgTargets.forEach((img) => {
 // 17. Building a Slider Component: Part 1
 
 // Slider
+const slider = () => {
 
 const slides = document.querySelectorAll('.slide')
 
 const btnLeft = document.querySelector('.slider__btn--left')
 const btnRight = document.querySelector('.slider__btn--right')
 
+const dotContainer = document.querySelector('.dots')
+
+
+
+dotContainer.addEventListener('click', (e) => {
+  if (e.target.classList.contains('dots__dot')){
+    const {slide} = e.target.dataset
+    goToSlide(slide)
+    activateDot(slide)
+    }
+})
+
+// Functions
+const createDots = () => {
+  slides.forEach((_,i)  => {
+    dotContainer.insertAdjacentHTML('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+  })
+}
+
+const activateDot = (slide) => {
+  document.querySelectorAll('.dots__dot').forEach(dot => dot.classList.remove('dots__dot--active'))
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active') // add active class to the dot that corresponds to the slide
+}
+
+const init = () => {
+  goToSlide(0)
+  createDots()
+  activateDot(0)
+}
+
 let curSlide = 0
 const maxSlide = slides.length
+
 
 // const slider = document.querySelector('.slider')
 // slider.style.transform = 'scale(0.5)'
@@ -504,7 +536,8 @@ const goToSlide = (slide) => {
   })
 }
 
-goToSlide(0)
+init()
+
 // Next slide
 const nextSlide = () => {
   if(curSlide === maxSlide - 1) {
@@ -514,6 +547,7 @@ const nextSlide = () => {
 
   }
   goToSlide(curSlide)
+  activateDot(curSlide)
 }
 
 const prevSlide = () => {
@@ -523,8 +557,10 @@ const prevSlide = () => {
     curSlide--
   }
   goToSlide(curSlide)
+  activateDot(curSlide)
 }
 
+// Event handlers
 btnRight.addEventListener('click', nextSlide)
 btnLeft.addEventListener('click', prevSlide)
 // curSlide = 1: -100%, 0%, 100%, 200%
@@ -541,3 +577,7 @@ document.addEventListener('keydown', (e) => {
   // With short circuiting
   e.key === 'ArrowRight' && nextSlide()
 })
+
+}
+
+slider()
