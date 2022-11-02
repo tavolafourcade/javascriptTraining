@@ -17,3 +17,25 @@ console.log(octavio)
 console.log(octavio instanceof Person) // true
 
 ///////////////////////////////////////
+
+// 4. Prototypes
+
+console.log(Person.prototype) // Person {calcAge: ƒ}
+Person.prototype.calcAge = function(){
+  console.log(2037 - this.birthYear);
+}
+
+octavio.calcAge() // 46
+console.log(octavio)
+
+// Check the octavio prototype
+console.log(octavio.__proto__) // Person {calcAge: ƒ}
+
+console.log('Prototype',octavio.__proto__===Person.prototype) // true
+
+
+Person.prototype.species = 'Homo Sapiens'
+console.log(octavio)
+console.log(octavio.hasOwnProperty('species')) // false
+
+///////////////////////////////////////
