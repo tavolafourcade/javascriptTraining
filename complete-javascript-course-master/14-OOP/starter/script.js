@@ -39,3 +39,7 @@ Person.prototype.species = 'Homo Sapiens'
 // console.log(octavio.hasOwnProperty('species')) // false
 
 ///////////////////////////////////////
+
+// 5. Prototypal Inheritance and the Prototype Chain
+
+///////////////////////////////////////
