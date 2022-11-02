@@ -49,14 +49,14 @@ Person.prototype.species = 'Homo Sapiens'
 // Prototype of arrays
 
 const arr = [3, 6, 4, 5, 6, 9, 3] // new Array === []
-console.log(arr.__proto__)
-console.log(arr.__proto__ === Array.prototype) // true
-console.log(arr.__proto__.__proto__) // Object.prototype
+// console.log(arr.__proto__)
+// console.log(arr.__proto__ === Array.prototype) // true
+// console.log(arr.__proto__.__proto__) // Object.prototype
 
 Array.prototype.unique = function(){
   return [...new Set(this)]
 }
 
-console.log(arr.unique()) // [3, 6, 4, 5, 9]
+// console.log(arr.unique()) // [3, 6, 4, 5, 9]
 
-console.dir(x => x + 1) // ƒ (anonymous)
+// console.dir(x => x + 1) // ƒ (anonymous)
