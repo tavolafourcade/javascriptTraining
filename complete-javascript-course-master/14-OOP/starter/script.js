@@ -109,8 +109,8 @@ const car1 = new Car('BMW', 100)
 
 // class declaration
 class PersonCl {
-  constructor(firstName, birthYear){
-    this.firstName = firstName;
+  constructor(fullName, birthYear){
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -118,11 +118,27 @@ class PersonCl {
   calcAge(){
     // console.log(2037 - this.birthYear);
   }
+
+  get age(){
+    return 2037 - this.birthYear;
+  }
+
+  // Set a property that already exists
+  set fullName(name) {
+    if(name.includes(' ')) this._fullName = name
+    else alert(`${name} is not a fullname`)
+  }
+
+  get fullName(){
+    return this._fullName
+  }
 }
 
-const jessica = new PersonCl('Jessica', 1996)
-// console.log(jessica)
+const jessica = new PersonCl('Jessica Davis', 1996)
+console.log(jessica)
 jessica.calcAge() // 41
+console.log(jessica.age) // 41
+
 
 // console.log(jessica.__proto__ === PersonCl.prototype) // true
 
@@ -131,5 +147,27 @@ PersonCl.prototype.greet = function(){
 }
 
 // jessica.greet() // Hey Jessica
+
+///////////////////////////////////////
+
+// 8. Setters and Getters
+
+const account = {
+  owner: 'Octavio',
+  movements: [ 200, 530, 120, 300],
+
+  get latest(){
+    return this.movements.slice(-1).pop()
+  },
+
+  set latest(mov) {
+    this.movements.push(mov)
+  }
+}
+
+console.log(account.latest)
+
+account.latest = 50
+console.log(account.movements)
 
 ///////////////////////////////////////
