@@ -99,3 +99,37 @@ const car1 = new Car('BMW', 100)
 // car1.brake()
 
 ///////////////////////////////////////
+
+// 7. ES6 Classes
+
+// Class expression
+// const PersonCl = class {
+
+// }
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear){
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to .prototype property
+  calcAge(){
+    console.log(2037 - this.birthYear);
+  }
+}
+
+const jessica = new PersonCl('Jessica', 1996)
+console.log(jessica)
+jessica.calcAge() // 41
+
+console.log(jessica.__proto__ === PersonCl.prototype) // true
+
+PersonCl.prototype.greet = function(){
+  console.log(`Hey ${this.firstName}`)
+}
+
+jessica.greet() // Hey Jessica
+
+///////////////////////////////////////
