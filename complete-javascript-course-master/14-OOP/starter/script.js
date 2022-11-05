@@ -94,6 +94,8 @@ Car.prototype.brake = function(){
 
 const car1 = new Car('BMW', 100)
 
-car1.accelerate()
-car1.accelerate()
-car1.brake()
+// car1.accelerate()
+// car1.accelerate()
+// car1.brake()
+
+///////////////////////////////////////
