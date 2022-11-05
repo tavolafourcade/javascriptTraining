@@ -135,15 +135,15 @@ class PersonCl {
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996)
-console.log(jessica)
+// console.log(jessica)
 jessica.calcAge() // 41
-console.log(jessica.age) // 41
+// console.log(jessica.age) // 41
 
 
 // console.log(jessica.__proto__ === PersonCl.prototype) // true
 
 PersonCl.prototype.greet = function(){
-  console.log(`Hey ${this.firstName}`)
+  // console.log(`Hey ${this.firstName}`)
 }
 
 // jessica.greet() // Hey Jessica
@@ -165,9 +165,9 @@ const account = {
   }
 }
 
-console.log(account.latest)
+// console.log(account.latest)
 
 account.latest = 50
-console.log(account.movements)
+// console.log(account.movements)
 
 ///////////////////////////////////////
