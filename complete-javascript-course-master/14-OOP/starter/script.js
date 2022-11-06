@@ -183,9 +183,9 @@ Person.hey = function () {
   console.log('Hey there 👋')
 } 
 
-Person.hey() // Hey there 👋
+// Person.hey() // Hey there 👋
 // jessica.hey() // Uncaught TypeError: jessica.hey is not a function
 
-PersonCl.hey()
+// PersonCl.hey()
 
 ///////////////////////////////////////
