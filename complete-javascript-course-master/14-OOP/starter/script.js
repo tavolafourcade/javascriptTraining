@@ -132,6 +132,11 @@ class PersonCl {
   get fullName(){
     return this._fullName
   }
+
+  static hey(){
+    console.log('Hey there')
+    console.log(this)
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996)
@@ -169,5 +174,18 @@ const account = {
 
 account.latest = 50
 // console.log(account.movements)
+
+///////////////////////////////////////
+
+// 10. Static Methods
+
+Person.hey = function () {
+  console.log('Hey there 👋')
+} 
+
+Person.hey() // Hey there 👋
+// jessica.hey() // Uncaught TypeError: jessica.hey is not a function
+
+PersonCl.hey()
 
 ///////////////////////////////////////
