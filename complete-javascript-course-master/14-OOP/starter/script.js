@@ -279,8 +279,10 @@ class CarCl {
 }
 
 const ford = new CarCl('Ford', 120)
-console.log(ford.speedUS) // 75
+// console.log(ford.speedUS) // 75
 ford.accelerate() // Ford is going at 130 km/h
 ford.brake()
 ford.speedUS = 50
-console.log(ford) // CarCl {make: 'Ford', speed: 80}
+// console.log(ford) // CarCl {make: 'Ford', speed: 80}
+
+///////////////////////////////////////
