@@ -315,9 +315,11 @@ Student.prototype.introduce = function(){
 }
 
 const mike = new Student('Mike', 2020, 'Computer Science')
-console.log(mike)
+// console.log(mike)
 mike.introduce() // My name is Mike and I study Computer Science
 mike.calcAge() // 17
 
-console.log(mike instanceof Student) // true
-console.log(mike instanceof Person) // true
+// console.log(mike instanceof Student) // true
+// console.log(mike instanceof Person) // true
+
+///////////////////////////////////////
