@@ -362,3 +362,25 @@ tesla.brake()
 // tesla.accelerate()
 
 ///////////////////////////////////////
+
+// 15. Inheritance Between “Classes”: ES6 Classes
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course){
+   // Always needs to happen first!
+    super(fullName, birthYear)
+    this.course = course
+  }
+
+  introduce(){
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+}
+
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Science')
+console.log(martha) // StudentCl {_fullName: 'Martha Jones', birthYear: 2012, course: 'Computer Science'}
+
+martha.introduce() // My name is Martha Jones and I study Computer Science
+martha.calcAge() // 9
+
+///////////////////////////////////////
