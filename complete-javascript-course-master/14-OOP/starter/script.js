@@ -414,8 +414,8 @@ StudentProto.introduce = function(){
 }
 
 const jay = Object.create(StudentProto) // Create a new object based on the StudentProto object
-jay.init('Jay', 2010, 'Computer Science') // Initialize the object
-jay.introduce() // My name is Jay and I study Computer Science
-jay.calcAge() // 27
+// jay.init('Jay', 2010, 'Computer Science') // Initialize the object
+// jay.introduce() // My name is Jay and I study Computer Science
+// jay.calcAge() // 27
 
 ///////////////////////////////////////
