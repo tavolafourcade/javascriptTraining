@@ -384,3 +384,38 @@ martha.introduce() // My name is Martha Jones and I study Computer Science
 martha.calcAge() // 9
 
 ///////////////////////////////////////
+
+// 16. Inheritance Between “Classes”: Object.create
+
+const PersonProto = {
+  calcAge(){
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear){
+    this.firstName = firstName
+    this.birthYear = birthYear
+  }
+}
+
+const steven = Object.create(PersonProto) // Create a new object based on the PersonProto object
+
+const StudentProto = Object.create(PersonProto) // Create a new object based on the PersonProto object
+
+// Add a new method to the StudentProto object
+StudentProto.init = function(firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear)
+  this.course = course
+}
+
+// Add a new method to the StudentProto object
+StudentProto.introduce = function(){
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+
+const jay = Object.create(StudentProto) // Create a new object based on the StudentProto object
+jay.init('Jay', 2010, 'Computer Science') // Initialize the object
+jay.introduce() // My name is Jay and I study Computer Science
+jay.calcAge() // 27
+
+///////////////////////////////////////
