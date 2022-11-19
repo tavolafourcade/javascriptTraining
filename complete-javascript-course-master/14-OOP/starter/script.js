@@ -463,7 +463,7 @@ class Account {
 
 }
 
-const acc1 = new Account('octavio', 'EUR', 1111)
+// const acc1 = new Account('octavio', 'EUR', 1111)
 
 // acc1.movements.push(250)
 // acc1.movements.push(-140)
@@ -475,4 +475,7 @@ const acc1 = new Account('octavio', 'EUR', 1111)
 
 ///////////////////////////////////////
 
-console.log(acc1.getMovements())
+// 18. Encapsulation: Protected Properties and Methods
+// console.log(acc1.getMovements())
+
+///////////////////////////////////////
