@@ -426,16 +426,23 @@ class Account {
   constructor(owner, currency, pin){
     this.owner = owner
     this.currency = currency
-    this.pin = pin
-    this.movements = []
+    
+    // Protected property
+    this._pin = pin
+    this._movements = []
     this.locale = navigator.language
 
     console.log(`Thanks for opening an account, ${owner}`);
   }
 
   // Public Interface
+
+  getMovements() {
+    return this._movements
+  }
+
   deposit(val) {
-    this.movements.push(val)
+    this._movements.push(val)
   }
 
   // Calling the deposit method inside the withdraw method
@@ -443,12 +450,12 @@ class Account {
     this.deposit(-val)
   }
 
-  approveLoan(val) {
+  _approveLoan(val) {
     return true
   }
 
   requestLoan(val) {
-    if(this.approveLoan(val)){
+    if(this._approveLoan(val)){
       this.deposit(val)
       console.log('Loan approved');
     }
@@ -456,7 +463,7 @@ class Account {
 
 }
 
-// const acc1 = new Account('octavio', 'EUR', 1111)
+const acc1 = new Account('octavio', 'EUR', 1111)
 
 // acc1.movements.push(250)
 // acc1.movements.push(-140)
@@ -467,3 +474,5 @@ class Account {
 // console.log(acc1)
 
 ///////////////////////////////////////
+
+console.log(acc1.getMovements())
