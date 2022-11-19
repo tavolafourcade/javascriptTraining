@@ -380,8 +380,8 @@ class StudentCl extends PersonCl {
 const martha = new StudentCl('Martha Jones', 2012, 'Computer Science')
 console.log(martha) // StudentCl {_fullName: 'Martha Jones', birthYear: 2012, course: 'Computer Science'}
 
-martha.introduce() // My name is Martha Jones and I study Computer Science
-martha.calcAge() // 9
+// martha.introduce() // My name is Martha Jones and I study Computer Science
+// martha.calcAge() // 9
 
 ///////////////////////////////////////
 
@@ -419,3 +419,49 @@ const jay = Object.create(StudentProto) // Create a new object based on the Stud
 // jay.calcAge() // 27
 
 ///////////////////////////////////////
+
+// Another Class Example
+
+class Account {
+  constructor(owner, currency, pin){
+    this.owner = owner
+    this.currency = currency
+    this.pin = pin
+    this.movements = []
+    this.locale = navigator.language
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public Interface
+  deposit(val) {
+    this.movements.push(val)
+  }
+
+  // Calling the deposit method inside the withdraw method
+  withdraw(val) {
+    this.deposit(-val)
+  }
+
+  approveLoan(val) {
+    return true
+  }
+
+  requestLoan(val) {
+    if(this.approveLoan(val)){
+      this.deposit(val)
+      console.log('Loan approved');
+    }
+  }
+
+}
+
+const acc1 = new Account('octavio', 'EUR', 1111)
+
+// acc1.movements.push(250)
+// acc1.movements.push(-140)
+acc1.deposit(250)
+acc1.withdraw(140)
+acc1.requestLoan(1000)
+acc1.approveLoan(1000)
+console.log(acc1)
