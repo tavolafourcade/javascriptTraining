@@ -452,17 +452,20 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val)
+    return this
   }
 
   // Calling the deposit method inside the withdraw method
   withdraw(val) {
     this.deposit(-val)
+    return this
   }
 
   requestLoan(val) {
     if(this._approveLoan(val)){
       this.deposit(val)
       console.log('Loan approved');
+      return this
     }
   }
 
@@ -484,7 +487,7 @@ const acc1 = new Account('octavio', 'EUR', 1111)
 // acc1.requestLoan(1000)
 // acc1.approveLoan(1000)
 console.log(acc1)
-console.log(acc1.#movements)
+// console.log(acc1.#movements)
 
 ///////////////////////////////////////
 
@@ -499,3 +502,9 @@ console.log(acc1.#movements)
 // Private fields
 // Public methods
 // Private methods
+
+///////////////////////////////////////
+
+// 20. Chaining Methods
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000)
+console.log(acc1.getMovements())
